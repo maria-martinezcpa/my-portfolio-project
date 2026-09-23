@@ -1,0 +1,441 @@
+[
+  {
+    "id": "01",
+    "title": "3D Modeling from Google Earth",
+    "role": "3D Modeler",
+    "published": "Nov 8, 2023",
+    "description": [
+      "I model Houses/Structures from Google Map/Earth is the only source."
+    ],
+    "skills": [
+      "Architecture",
+      "Architectural Design",
+      "Autodesk Revit",
+      "Building Information Modeling",
+      "Construction Document Preparation",
+      "Drafting",
+      "Drawing",
+      "Google",
+      "Modeling",
+      "3D Modeling",
+      "CAD Drafting",
+      "Residential Design",
+      "3D Game Art",
+      "3D Animation",
+      "3D Design"
+    ],
+    "images": [
+      {
+        "src": "/projects/01/image-01.webp",
+        "width": 572,
+        "height": 420
+      },
+      {
+        "src": "/projects/01/image-02.webp",
+        "width": 727,
+        "height": 521
+      },
+      {
+        "src": "/projects/01/image-03.webp",
+        "width": 971,
+        "height": 685
+      },
+      {
+        "src": "/projects/01/image-04.webp",
+        "width": 937,
+        "height": 665
+      },
+      {
+        "src": "/projects/01/image-05.webp",
+        "width": 957,
+        "height": 602
+      }
+    ]
+  },
+  {
+    "id": "02",
+    "title": "Corporate Office Interior Design",
+    "role": "Architectural & Interior designer",
+    "published": "May 15, 2024",
+    "description": [
+      "Modern & contemporary interior design"
+    ],
+    "skills": [
+      "Autodesk Revit",
+      "Enscape",
+      "3D Rendering",
+      "3D Modeling",
+      "Interior Design"
+    ],
+    "images": [
+      {
+        "src": "/projects/02/image-01.webp",
+        "width": 1600,
+        "height": 900
+      },
+      {
+        "src": "/projects/02/image-02.webp",
+        "width": 1600,
+        "height": 900
+      },
+      {
+        "src": "/projects/02/image-03.webp",
+        "width": 1600,
+        "height": 900
+      },
+      {
+        "src": "/projects/02/image-04.webp",
+        "width": 1600,
+        "height": 900
+      },
+      {
+        "src": "/projects/02/image-05.webp",
+        "width": 1600,
+        "height": 900
+      },
+      {
+        "src": "/projects/02/image-06.webp",
+        "width": 1600,
+        "height": 900
+      },
+      {
+        "src": "/projects/02/image-07.webp",
+        "width": 1600,
+        "height": 900
+      },
+      {
+        "src": "/projects/02/image-08.webp",
+        "width": 1600,
+        "height": 900
+      },
+      {
+        "src": "/projects/02/image-09.webp",
+        "width": 1600,
+        "height": 900
+      },
+      {
+        "src": "/projects/02/image-10.webp",
+        "width": 1600,
+        "height": 900
+      },
+      {
+        "src": "/projects/02/image-11.webp",
+        "width": 1600,
+        "height": 900
+      },
+      {
+        "src": "/projects/02/image-12.webp",
+        "width": 1600,
+        "height": 900
+      },
+      {
+        "src": "/projects/02/image-13.webp",
+        "width": 1600,
+        "height": 900
+      },
+      {
+        "src": "/projects/02/image-14.webp",
+        "width": 1600,
+        "height": 900
+      },
+      {
+        "src": "/projects/02/image-15.webp",
+        "width": 1600,
+        "height": 900
+      },
+      {
+        "src": "/projects/02/image-16.webp",
+        "width": 1600,
+        "height": 900
+      }
+    ]
+  },
+  {
+    "id": "03",
+    "title": "Deck Plan for building permit",
+    "role": "Revit Drafter",
+    "published": "Sep 10, 2022",
+    "description": [
+      "Hello, I have completed this deck for building permit. I have good experience in deck planning. I have completed many deck plan."
+    ],
+    "skills": [
+      "Autodesk AutoCAD",
+      "Autodesk Revit",
+      "2D Design",
+      "Floor Plan Design"
+    ],
+    "images": [
+      {
+        "src": "/projects/03/image-01.webp",
+        "width": 1600,
+        "height": 1131
+      },
+      {
+        "src": "/projects/03/image-02.webp",
+        "width": 1600,
+        "height": 1131
+      }
+    ]
+  },
+  {
+    "id": "04",
+    "title": "Scan to Revit Model",
+    "role": "Revit Modeler",
+    "published": "Aug 31, 2026",
+    "description": [
+      "Hello, as a BIM modeler, I have over 11 years of experience with Revit. I can help you complete this type project by adding any necessary details. I have extensive experience in design and modeling."
+    ],
+    "skills": [
+      "Autodesk Revit",
+      "Autodesk AutoCAD",
+      "Architectural Drawing",
+      "Exterior Rendering",
+      "3D Modeling"
+    ],
+    "images": [
+      {
+        "src": "/projects/04/image-01.webp",
+        "width": 1600,
+        "height": 781
+      }
+    ]
+  },
+  {
+    "id": "05",
+    "title": "Multifamily complex - 3D modeling",
+    "role": "Modeller",
+    "published": "Jan 20, 2026",
+    "description": [
+      "This project was developed and modeled based on the existing site conditions and the client’s preliminary layout sketches. A detailed terrain model was created, along with two multi-family residential buildings and several townhouses. Special attention was given to accuracy and detailing, allowing the client to clearly visualize how the project would look in reality."
+    ],
+    "skills": [
+      "Autodesk Revit",
+      "3D Model",
+      "3D Modeling",
+      "AI Image Generator"
+    ],
+    "images": [
+      {
+        "src": "/projects/05/image-01.webp",
+        "width": 1600,
+        "height": 728
+      },
+      {
+        "src": "/projects/05/image-02.webp",
+        "width": 1399,
+        "height": 395
+      },
+      {
+        "src": "/projects/05/image-03.webp",
+        "width": 1600,
+        "height": 1108
+      },
+      {
+        "src": "/projects/05/image-04.webp",
+        "width": 1600,
+        "height": 489
+      },
+      {
+        "src": "/projects/05/image-05.webp",
+        "width": 1600,
+        "height": 637
+      }
+    ]
+  },
+  {
+    "id": "06",
+    "title": "Sample of Construction Set for the 2-Story Residential Project",
+    "role": "Architectural Drafter",
+    "published": "Oct 14, 2025",
+    "description": [
+      "This contains some drawings from a complete set for a two-storey residential building in Florida. Proposals were made for a plan and a 3D view of the house. Following this, all the necessary documentation was developed and submitted.",
+      "The model and drawings were created in Revit, along with the automatic specifications and details."
+    ],
+    "skills": [
+      "Autodesk Revit",
+      "Construction Document Preparation",
+      "Architectural Design",
+      "Architectural Drawing",
+      "BIM Coordination"
+    ],
+    "images": [
+      {
+        "src": "/projects/06/image-01.webp",
+        "width": 1000,
+        "height": 667
+      },
+      {
+        "src": "/projects/06/image-02.webp",
+        "width": 1600,
+        "height": 1012
+      },
+      {
+        "src": "/projects/06/image-03.webp",
+        "width": 1600,
+        "height": 850
+      }
+    ]
+  },
+  {
+    "id": "07",
+    "title": "Dialysis Center for a Medical Center 2022",
+    "role": "Architect",
+    "published": "Jul 29, 2024",
+    "description": [
+      "The project entails the development of a standalone facility that encompasses 40 dialysis stations, comprising 30 Hemodialysis stations and 10 Peritoneal Dialysis stations.",
+      "The Hemodialysis Center is designed as a cutting edge establishment, strategically planned to cater to the increasing demand for dialysis services within the community. Its primary objective is to offer patients a comfortable, convenient, and secure environment for receiving dialysis treatment."
+    ],
+    "skills": [
+      "CAD Drafting",
+      "Architectural Design",
+      "SketchUp",
+      "Autodesk AutoCAD",
+      "Enscape"
+    ],
+    "images": [
+      {
+        "src": "/projects/07/image-01.webp",
+        "width": 1600,
+        "height": 900
+      },
+      {
+        "src": "/projects/07/image-02.webp",
+        "width": 1214,
+        "height": 906
+      },
+      {
+        "src": "/projects/07/image-03.webp",
+        "width": 1600,
+        "height": 900
+      },
+      {
+        "src": "/projects/07/image-04.webp",
+        "width": 1600,
+        "height": 900
+      }
+    ]
+  },
+  {
+    "id": "08",
+    "title": "Private Residential Mansion 2021",
+    "role": "Architectural Designer",
+    "published": "Feb 18, 2026",
+    "description": [
+      "Large-scale private residential project involving the preparation of architectural construction documents. Drawings were produced in AutoCAD with focus on accuracy, organized layering, and buildable detailing. Due to confidentiality agreements, only limited excerpts of the documentation are displayed."
+    ],
+    "skills": [
+      "Autodesk AutoCAD",
+      "Technical Documentation"
+    ],
+    "images": [
+      {
+        "src": "/projects/08/image-01.webp",
+        "width": 1282,
+        "height": 781
+      },
+      {
+        "src": "/projects/08/image-02.webp",
+        "width": 1600,
+        "height": 682
+      },
+      {
+        "src": "/projects/08/image-03.webp",
+        "width": 822,
+        "height": 740
+      },
+      {
+        "src": "/projects/08/image-04.webp",
+        "width": 492,
+        "height": 792
+      },
+      {
+        "src": "/projects/08/image-05.webp",
+        "width": 936,
+        "height": 532
+      }
+    ]
+  },
+  {
+    "id": "09",
+    "title": "ID House",
+    "role": "Architect",
+    "published": "Jan 16, 2026",
+    "description": [
+      "This living space is designed as a warm and calming family area, defined by natural wood finishes that create a sense of comfort and balance. The TV feature wall uses vertical wooden panels as a clean focal point, enhancing visual height and spatial order. Integrated display niches with soft lighting add subtle depth. Neutral-toned furniture and a round wooden coffee table support a relaxed layout, while indoor greenery and natural daylight strengthen the connection between the interior and nature."
+    ],
+    "skills": [
+      "Architectural Design",
+      "Rendering",
+      "Interior Design"
+    ],
+    "images": [
+      {
+        "src": "/projects/09/image-01.webp",
+        "width": 1600,
+        "height": 900
+      }
+    ]
+  },
+  {
+    "id": "10",
+    "title": "Plan Digitization: PDF Redraw to CAD + GIS/Google Earth Alignment",
+    "role": "Drafting & Georeferencing Support",
+    "published": "Feb 24, 2026",
+    "description": [
+      "Client provided legacy PDF plan sheets. Our team recreated the full plan in CAD and rebuilt all key linework and annotations for a clean, editable drawing set. We then tied the CAD file to real-world coordinates using coordinate control, aligning the work to mapping/imagery for field-accurate placement. Final deliverables included georeferenced CAD files and a KMZ for Google Earth visualization and coordination."
+    ],
+    "skills": [
+      "Autodesk AutoCAD",
+      "PDF Conversion",
+      "CAD Drafting"
+    ],
+    "images": [
+      {
+        "src": "/projects/10/01-cover.webp",
+        "width": 1000,
+        "height": 750
+      },
+      {
+        "src": "/projects/10/02.webp",
+        "width": 1600,
+        "height": 833
+      },
+      {
+        "src": "/projects/10/03.webp",
+        "width": 1600,
+        "height": 788
+      }
+    ]
+  },
+  {
+    "id": "11",
+    "title": "Real Estate Site Selection & Zoning Overlay Analysis",
+    "role": "Real Estate Site Selection & Zoning Overlay Analysis",
+    "published": "Feb 3, 2026",
+    "description": [
+      "Created GIS overlays for real estate site selection by combining parcels, zoning, utilities, roads, and environmental layers. Built buffer and constraint analyses to screen candidate sites and produced clean, client-ready maps for development decisions. Established a repeatable workflow so new properties could be evaluated quickly. Tools: ArcGIS Pro, QGIS, Excel. Experience supporting real estate and land-use planning projects."
+    ],
+    "skills": [
+      "ArcGIS",
+      "QGIS",
+      "Microsoft Excel"
+    ],
+    "images": [
+      {
+        "src": "/projects/11/01-cover.webp",
+        "width": 1000,
+        "height": 750
+      },
+      {
+        "src": "/projects/11/02.webp",
+        "width": 1600,
+        "height": 1160
+      },
+      {
+        "src": "/projects/11/03.webp",
+        "width": 1582,
+        "height": 1896
+      }
+    ]
+  }
+]
