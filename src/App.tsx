@@ -1,55 +1,73 @@
-import { useEffect } from 'react'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import Services from './components/Services'
-import BimSection from './components/BimSection'
-import Projects from './components/Projects'
-import Process from './components/Process'
-import About from './components/About'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
+import { AnimatePresence } from 'framer-motion'
+import { useState } from 'react'
+import Cursor from './components/Cursor'
+import Nav from './components/Nav'
+import Preloader from './components/Preloader'
+import { findProject } from './data'
+import { IntroContext } from './lib/intro'
+import { routeKey, useRoute, type Route } from './lib/router'
+import About from './pages/About'
+import Bim from './pages/Bim'
+import Contact from './pages/Contact'
+import Home from './pages/Home'
+import NotFound from './pages/NotFound'
+import Project from './pages/Project'
+import Work from './pages/Work'
 
-// Fade sections in as they scroll into view. Content stays visible without the observer.
-function useReveal() {
-  useEffect(() => {
-    if (!('IntersectionObserver' in window)) return
-    const root = document.documentElement
-    root.classList.add('reveal-ready')
-    const io = new IntersectionObserver(
-      (entries) => {
-        for (const e of entries) {
-          if (e.isIntersecting) {
-            e.target.classList.add('revealed')
-            io.unobserve(e.target)
-          }
-        }
-      },
-      { rootMargin: '0px 0px -4% 0px', threshold: 0.05 },
-    )
-    document.querySelectorAll('[data-reveal]').forEach((el) => io.observe(el))
-    return () => {
-      io.disconnect()
-      root.classList.remove('reveal-ready')
+function render(route: Route) {
+  switch (route.name) {
+    case 'home':
+      return <Home />
+    case 'work':
+      return <Work />
+    case 'project': {
+      const project = findProject(route.id)
+      return project ? <Project project={project} /> : <NotFound />
     }
-  }, [])
+    case 'bim':
+      return <Bim />
+    case 'about':
+      return <About />
+    case 'contact':
+      return <Contact />
+    default:
+      return <NotFound />
+  }
+}
+
+// The preloader plays once per visit.
+const INTRO_KEY = 'portfolio-intro-seen'
+function introSeen() {
+  try {
+    return sessionStorage.getItem(INTRO_KEY) === '1' || window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  } catch {
+    return false
+  }
 }
 
 export default function App() {
-  useReveal()
+  const route = useRoute()
+  const [introDone, setIntroDone] = useState(introSeen)
+
+  const finishIntro = () => {
+    try {
+      sessionStorage.setItem(INTRO_KEY, '1')
+    } catch {
+      // not stored; the intro may play again next load
+    }
+    setIntroDone(true)
+  }
 
   return (
-    <>
-      <Navbar />
+    <IntroContext.Provider value={introDone}>
+      {!introDone && <Preloader onDone={finishIntro} />}
+      <Cursor />
+      <Nav route={route} />
       <main>
-        <Hero />
-        <Services />
-        <BimSection />
-        <Projects />
-        <Process />
-        <About />
-        <Contact />
+        <AnimatePresence mode="wait" onExitComplete={() => window.scrollTo(0, 0)}>
+          <div key={routeKey(route)}>{render(route)}</div>
+        </AnimatePresence>
       </main>
-      <Footer />
-    </>
+    </IntroContext.Provider>
   )
 }

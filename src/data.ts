@@ -71,6 +71,10 @@ export const projects: Project[] = sampleProjects
   .map((p) => ({ ...p, author: authors[p.id], category: categories[p.id] ?? 'BIM Modeling' }))
   .sort((a, b) => Date.parse(b.published) - Date.parse(a.published))
 
+export const year = (p: Project) => p.published.slice(-4)
+export const findProject = (id: string) => projects.find((p) => p.id === id)
+export const nextProject = (p: Project) => projects[(projects.indexOf(p) + 1) % projects.length]
+
 export interface SkillGroup {
   title: string
   icon: 'cube' | 'drawing' | 'layers'
