@@ -144,14 +144,14 @@ export default function Bim() {
 
   return (
     <Page title={`What is BIM | ${OWNER}`}>
-      <header className="container-x grid items-start gap-8 pb-8 pt-28 md:grid-cols-12 md:gap-8 md:pt-32">
-        <div className="md:col-span-5 md:pt-6">
+      <header className="container-x grid items-center gap-6 pb-4 pt-28 md:grid-cols-12 md:gap-6 md:pt-28">
+        <div className="md:col-span-5">
           <motion.span className="eyebrow text-muted" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4, duration: 1 }}>
             A short guide
           </motion.span>
           <h1 className="mt-4 font-display text-[16vw] leading-[0.95] tracking-[-0.02em] md:text-[5.5vw]">
             <RevealText text="What is" instant delay={0.3} className="block" />
-            <RevealText text="BIM?" instant delay={0.45} className="block italic" />
+            <RevealText text="BIM?" instant delay={0.45} className="block" />
           </h1>
           <Reveal delay={0.7} className="mt-7 space-y-4 text-lg leading-relaxed text-fg/80">
             <p>
@@ -173,16 +173,16 @@ export default function Bim() {
             ))}
           </Reveal>
         </div>
-        <div className="md:col-span-7 md:-mr-[3vw] md:-mt-4">
+        <div className="md:col-span-7">
           <AxonDrawing />
         </div>
       </header>
 
-      <div className="container-x grid md:grid-cols-12 md:gap-12">
+      <div className="container-x grid md:grid-cols-12 md:gap-10">
         {/* Sticky index with progress, plus the key standards at a glance */}
-        <aside className="hidden md:col-span-4 md:block xl:col-span-3">
-          <div className="sticky top-28 space-y-5 pt-16">
-            <nav className="rounded-2xl border border-line bg-surface/60 p-6" aria-label="Guide sections">
+        <aside className="hidden md:col-span-4 md:block">
+          <div className="sticky top-24 flex h-[calc(100svh-7rem)] flex-col gap-4 pt-6">
+            <nav className="flex min-h-0 flex-1 flex-col rounded-2xl border border-line bg-surface/60 p-6 lg:p-8" aria-label="Guide sections">
               <div className="flex items-center justify-between">
                 <span className="eyebrow text-muted">Contents</span>
                 <span className="text-sm tabular-nums text-muted">
@@ -196,7 +196,7 @@ export default function Bim() {
                   transition={{ duration: 0.6, ease: EASE }}
                 />
               </div>
-              <ol className="mt-3">
+              <ol className="mt-3 flex flex-1 flex-col justify-between">
                 {sections.map((s, i) => (
                   <li key={s.id}>
                     <a
@@ -206,7 +206,7 @@ export default function Bim() {
                         document.getElementById(s.id)?.scrollIntoView({ behavior: 'smooth' })
                       }}
                       aria-current={active === s.id ? 'true' : undefined}
-                      className={`flex items-center gap-4 rounded-lg px-3 py-3 text-lg transition-colors duration-500 ${
+                      className={`flex items-center gap-4 rounded-lg px-3 py-2 text-lg transition-colors lg:text-xl duration-500 ${
                         active === s.id ? 'bg-bg font-medium text-fg' : 'text-muted hover:text-fg'
                       }`}
                     >
@@ -219,7 +219,7 @@ export default function Bim() {
                 ))}
               </ol>
             </nav>
-            <div className="rounded-2xl border border-line p-6">
+            <div className="hidden shrink-0 rounded-2xl border border-line p-6 [@media(min-height:880px)]:block">
               <span className="eyebrow text-muted">Key standards</span>
               <dl className="mt-4 space-y-3 text-[0.95rem]">
                 {standards.map(([k, v]) => (
@@ -233,7 +233,7 @@ export default function Bim() {
           </div>
         </aside>
 
-        <article className="md:col-span-8 xl:col-span-9">
+        <article className="md:col-span-8">
           <Section id="definition" n={1} title="Definition" onActive={setActive}>
             <Reveal y={20}>
               <blockquote className="border-l border-accent pl-6 font-display text-3xl leading-snug md:text-4xl">
