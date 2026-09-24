@@ -455,7 +455,30 @@ section { scroll-margin-top: 72px; }
 .about, .contact { text-align: center; max-width: 720px; }
 .about h2, .contact h2 { font-size: 2.2rem; }
 .about .tech-list { margin-top: 1.5rem; }
-.contact-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+.contact-list {
+  list-style: none; margin: 1.5rem 0 0; padding: 0;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px;
+}
+.contact-card {
+  --brand: var(--primary);
+  display: flex; align-items: center; gap: 14px; padding: 14px 18px; text-align: left;
+  background: var(--surface); color: var(--text); text-decoration: none;
+  border: var(--border-width) var(--border-style) var(--border); border-radius: var(--radius);
+  box-shadow: var(--shadow); transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+.contact-card:hover { transform: var(--lift); box-shadow: var(--shadow-hover); border-color: var(--brand); }
+.contact-email { --brand: #ea4335; }
+.contact-telegram { --brand: #229ed9; }
+.contact-phone { --brand: #16a34a; }
+.contact-icon {
+  flex: none; display: grid; place-items: center; width: 46px; height: 46px;
+  border-radius: 50%; background: var(--brand); color: #fff;
+}
+.contact-icon svg { width: 22px; height: 22px; }
+.contact-telegram .contact-icon svg { transform: translateX(-1px); }
+.contact-text { display: flex; flex-direction: column; min-width: 0; }
+.contact-label { font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.contact-value { font-weight: 600; overflow-wrap: anywhere; }
 
 /* Project modal */
 .modal-backdrop {
