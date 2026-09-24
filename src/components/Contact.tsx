@@ -43,10 +43,10 @@ export default function Contact() {
         <div className="contact-panel" data-reveal>
           <div className="contact-intro">
             <span className="kicker">Contact</span>
-            <h2>Have a model, a map or a workflow in mind?</h2>
+            <h2>Say hello</h2>
             <p>
-              Send drawings, scans or a short brief. I'll reply with questions, an approach and a timeline for your
-              project.
+              Questions about a project here, or want to talk about BIM, GIS or code? I'm always happy to hear
+              from people.
             </p>
           </div>
 

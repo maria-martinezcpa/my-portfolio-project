@@ -4,7 +4,7 @@ import { ClipboardIcon, LayersIcon, PinIcon, SendIcon } from './Icons'
 const steps = [
   {
     icon: ClipboardIcon,
-    title: 'Brief & source data',
+    title: 'Start from the source',
     text: 'Sketches, PDFs, CAD files, point clouds or GIS layers: whatever the project starts from.',
   },
   {
@@ -19,19 +19,19 @@ const steps = [
   },
   {
     icon: SendIcon,
-    title: 'Deliver & automate',
-    text: 'RVT, DWG, IFC, PDF or KMZ, plus scripts or tools when the same task will come up again.',
+    title: 'Share & automate',
+    text: 'Export to RVT, DWG, IFC, PDF or KMZ, and script the parts that come up again and again.',
   },
 ]
 
 export default function Process() {
   return (
-    <section id="process" className="section section-alt" data-testid="process">
+    <section id="approach" className="section section-alt" data-testid="approach">
       <div className="container">
         <header className="section-head" data-reveal>
-          <span className="kicker">Process</span>
-          <h2>From source files to a model you can use</h2>
-          <p>Four steps, whether the job is one drawing set or a model that links to a whole city map.</p>
+          <span className="kicker">Approach</span>
+          <h2>How I like to work</h2>
+          <p>The same four steps run through most of my projects, from a single drawing set to a model linked to a city map.</p>
         </header>
 
         <ol className="process">

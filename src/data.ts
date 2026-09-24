@@ -34,10 +34,10 @@ export const TELEGRAM = 'https://t.me/housekeeper5252'
 export const PHONE = '+1 (323) 505 2719'
 
 export const navLinks: NavLink[] = [
-  { label: 'Services', href: '#services' },
+  { label: 'Focus', href: '#focus' },
   { label: 'BIM', href: '#bim' },
   { label: 'Projects', href: '#projects' },
-  { label: 'Process', href: '#process' },
+  { label: 'Approach', href: '#approach' },
   { label: 'About', href: '#about' },
 ]
 

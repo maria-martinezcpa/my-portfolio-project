@@ -16,11 +16,11 @@ export default function About() {
           </p>
           <p className="muted">
             I link building models with GIS site and city data, and write software (Revit add-ins, Python scripts and web
-            apps) that automates and shares them. That means one person can take a project from a PDF or a point cloud
-            to a georeferenced model, and then build the tool that keeps it up to date.
+            apps) that automates and shares them. I enjoy taking a project from a PDF or a point cloud to a
+            georeferenced model, and then building the tool that keeps it up to date.
           </p>
-          <a href="#contact" className="btn btn-primary">
-            Work with me
+          <a href="#projects" className="btn btn-primary">
+            See my projects
           </a>
         </div>
 

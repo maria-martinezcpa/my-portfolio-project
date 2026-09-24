@@ -58,7 +58,7 @@ export default function Navbar() {
         <div className="nav-right">
           <ThemePicker />
           <a href="#contact" className="btn btn-primary btn-sm nav-cta">
-            Get in touch
+            Contact
           </a>
           <button
             className="nav-toggle"

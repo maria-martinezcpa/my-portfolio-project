@@ -5,7 +5,7 @@ import { ArrowIcon } from './Icons'
 const stats = [
   { value: '3', label: 'Disciplines', note: 'BIM · GIS · Software' },
   { value: `${skills.length}`, label: 'Tools & skills', note: 'Revit to React' },
-  { value: 'RVT · DWG · IFC · KMZ', label: 'Delivery formats', note: 'Ready for any team' },
+  { value: 'RVT · DWG · IFC · KMZ', label: 'File formats', note: 'What I work in daily' },
 ]
 
 const tools = [
@@ -36,15 +36,15 @@ export default function Hero() {
             BIM models, <span className="grad">real-world context</span> and the code that connects them.
           </h1>
           <p className="hero-sub">
-            I'm {OWNER}. I build Revit models and construction drawings, place them on GIS maps at their real
-            coordinates, and write software that automates the work in between.
+            I'm {OWNER}, and this is my portfolio. I work on Revit models and construction drawings, place them on GIS
+            maps at their real coordinates, and write software that automates the work in between.
           </p>
           <div className="hero-ctas">
             <a href="#projects" className="btn btn-primary btn-lg">
               View projects <ArrowIcon className="btn-icon" />
             </a>
-            <a href="#contact" className="btn btn-ghost btn-lg">
-              Start a project
+            <a href="#about" className="btn btn-ghost btn-lg">
+              About me
             </a>
           </div>
 

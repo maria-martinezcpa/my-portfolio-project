@@ -35,12 +35,12 @@ const services: Service[] = [
 
 export default function Services() {
   return (
-    <section id="services" className="section" data-testid="services">
+    <section id="focus" className="section" data-testid="focus">
       <div className="container">
         <header className="section-head" data-reveal>
-          <span className="kicker">Services</span>
-          <h2>One partner for the model, the map and the code</h2>
-          <p>Most BIM work stops at the building's walls. Mine carries on to the site, the city and the software around it.</p>
+          <span className="kicker">What I do</span>
+          <h2>The model, the map and the code</h2>
+          <p>My work starts with the building and carries on to its site, its city and the software around it.</p>
         </header>
 
         <div className="service-grid">
