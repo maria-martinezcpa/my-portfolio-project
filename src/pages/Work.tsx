@@ -5,21 +5,16 @@ import Page from '../components/Page'
 import ProjectTile from '../components/ProjectTile'
 import { Reveal, RevealText } from '../components/Reveal'
 import { CATEGORIES, OWNER, projects, type Category } from '../data'
+import { packedGrid } from '../lib/grid'
 import { EASE } from '../lib/motion'
 
 type Filter = Category | 'All'
 
-// Four placements that repeat down the page for an uneven, editorial rhythm.
-const rhythm = [
-  { cell: 'md:col-span-7', aspect: 'aspect-[4/3]' },
-  { cell: 'md:col-span-4 md:col-start-9 md:mt-[26vh]', aspect: 'aspect-[4/5]' },
-  { cell: 'md:col-span-5 md:col-start-2', aspect: 'aspect-[3/4]' },
-  { cell: 'md:col-span-6 md:col-start-7 md:mt-[18vh]', aspect: 'aspect-[16/11]' },
-]
 
 export default function Work() {
   const [filter, setFilter] = useState<Filter>('All')
   const shown = filter === 'All' ? projects : projects.filter((p) => p.category === filter)
+  const grid = packedGrid(shown.length)
   const count = (f: Filter) => (f === 'All' ? projects.length : projects.filter((p) => p.category === f).length)
 
   return (
@@ -63,11 +58,10 @@ export default function Work() {
         </motion.div>
       </section>
 
-      <section key={filter} className="container-x grid gap-y-20 md:grid-cols-12 md:gap-x-8 md:gap-y-24">
-        {shown.map((p, i) => {
-          const r = rhythm[i % rhythm.length]
-          return <ProjectTile key={p.id} project={p} index={i} className={r.cell} aspect={r.aspect} />
-        })}
+      <section key={filter} className="container-x grid gap-y-16 md:grid-cols-2 md:gap-x-8 lg:grid-cols-12 lg:gap-y-20">
+        {shown.map((p, i) => (
+          <ProjectTile key={p.id} project={p} index={i} className={grid[i].cell} aspect={grid[i].aspect} />
+        ))}
       </section>
 
       <Footer />

@@ -9,6 +9,7 @@ import ProjectTile from '../components/ProjectTile'
 import { Reveal, RevealText } from '../components/Reveal'
 import { OWNER, ROLE, findProject, projects, type Project } from '../data'
 import { useIntroDone } from '../lib/intro'
+import { packedGrid } from '../lib/grid'
 import { EASE } from '../lib/motion'
 
 const SLIDE_MS = 6500
@@ -109,14 +110,8 @@ function Hero() {
   )
 }
 
-// Asymmetric editorial placement for the selected projects.
-const layout = [
-  { cell: 'md:col-span-7', aspect: 'aspect-[16/11]' },
-  { cell: 'md:col-start-9 md:col-span-4 md:mt-[34vh]', aspect: 'aspect-[3/4]' },
-  { cell: 'md:col-start-2 md:col-span-5 md:-mt-[4vh]', aspect: 'aspect-[4/5]' },
-  { cell: 'md:col-start-8 md:col-span-5 md:mt-[22vh]', aspect: 'aspect-[4/3]' },
-  { cell: 'md:col-span-12 md:mt-[10vh]', aspect: 'aspect-[16/10] md:aspect-[21/9]' },
-]
+// Selected work: a row of two, then a row of three.
+const layout = packedGrid(5)
 
 export default function Home() {
   return (
@@ -155,7 +150,7 @@ export default function Home() {
             All projects
           </a>
         </div>
-        <div className="grid gap-y-20 md:grid-cols-12 md:gap-x-8 md:gap-y-0">
+        <div className="grid gap-y-16 md:grid-cols-2 md:gap-x-8 lg:grid-cols-12 lg:gap-y-20">
           {projects.slice(0, layout.length).map((p, i) => (
             <ProjectTile key={p.id} project={p} index={i} className={layout[i].cell} aspect={layout[i].aspect} />
           ))}
