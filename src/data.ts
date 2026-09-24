@@ -20,7 +20,8 @@ export interface Project {
   description: string[]
   skills: string[]
   images: ProjectImage[]
-  author?: string
+  /** Another designer's project, shown for reference (their names are not published). */
+  reference: boolean
   category: Category
 }
 
@@ -41,18 +42,8 @@ export const navLinks: NavLink[] = [
   { label: 'About', href: '#about' },
 ]
 
-// Sample projects by other freelancers; each is shown with its author's name.
-const authors: Record<string, string> = {
-  '01': 'Ariel B.',
-  '02': 'Arooba U.',
-  '03': 'Jalal U.',
-  '04': 'Jalal U.',
-  '05': 'Juliia P.',
-  '06': 'Juliia P.',
-  '07': 'Kelly V.',
-  '08': 'Kelly V.',
-  '09': 'Mochammad Ichwan A.',
-}
+// Projects by other designers, shown for reference and labelled as such.
+const referenceIds = new Set(['01', '02', '03', '04', '05', '06', '07', '08', '09'])
 
 const categories: Record<string, Category> = {
   '01': 'BIM Modeling',
@@ -68,7 +59,7 @@ const categories: Record<string, Category> = {
 
 // Newest first
 export const projects: Project[] = sampleProjects
-  .map((p) => ({ ...p, author: authors[p.id], category: categories[p.id] ?? 'BIM Modeling' }))
+  .map((p) => ({ ...p, reference: referenceIds.has(p.id), category: categories[p.id] ?? 'BIM Modeling' }))
   .sort((a, b) => Date.parse(b.published) - Date.parse(a.published))
 
 export const year = (p: Project) => p.published.slice(-4)

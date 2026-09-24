@@ -78,7 +78,7 @@ function Hero() {
               transition={{ duration: 0.7, ease: EASE }}
             >
               <span className="font-display text-xl leading-tight md:text-2xl">{slide.title}</span>
-              <span className="opacity-60">{slide.author ? `Sample project by ${slide.author}` : slide.role}</span>
+              <span className="opacity-60">{slide.reference ? 'Reference project' : slide.role}</span>
             </motion.a>
           </AnimatePresence>
           <span className="eyebrow hidden justify-self-center opacity-70 md:flex md:items-center md:gap-3">

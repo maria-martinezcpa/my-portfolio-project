@@ -33,7 +33,7 @@ export default function ProjectTile({
         <span />
         <p className="col-span-2 text-sm text-muted">
           {project.category}
-          {project.author && <> · Sample by {project.author}</>}
+          {project.reference && <> · Reference project</>}
         </p>
       </motion.div>
     </a>

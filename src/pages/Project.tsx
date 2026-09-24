@@ -67,7 +67,7 @@ export default function Project({ project }: { project: P }) {
     ['Role', project.role],
     ['Year', year(project)],
     ['Images', String(project.images.length)],
-    ...(project.author ? [['Credit', `Sample project by ${project.author}`]] : []),
+    ...(project.reference ? [['Note', 'Reference project by another designer']] : []),
   ]
 
   return (
@@ -84,9 +84,9 @@ export default function Project({ project }: { project: P }) {
           ))}
         </dl>
         <div className="md:col-span-8 md:col-start-5">
-          {project.author && (
+          {project.reference && (
             <Reveal>
-              <span className="eyebrow mb-6 block text-accent">Project notes by {project.author}</span>
+              <span className="eyebrow mb-6 block text-accent">Notes from the original designer</span>
             </Reveal>
           )}
           {lead && (

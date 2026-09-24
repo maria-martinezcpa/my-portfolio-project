@@ -31,8 +31,8 @@ export default function Work() {
           </div>
           <Reveal className="self-end md:col-span-4" delay={0.5}>
             <p className="max-w-sm leading-relaxed text-muted">
-              Architectural models, drawing sets and visuals. Several are sample projects by other freelancers, and each
-              is credited to its author.
+              Architectural models, drawing sets and visuals. Reference projects by other designers are marked as
+              such.
             </p>
           </Reveal>
         </div>
