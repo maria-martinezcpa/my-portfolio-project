@@ -60,53 +60,75 @@ export default function Project({ project }: { project: P }) {
   const [lightbox, setLightbox] = useState<number | null>(null)
   const close = useCallback(() => setLightbox(null), [])
   const next = nextProject(project)
-  const [lead, ...rest] = project.description
-
   const meta = [
     ['Category', project.category],
     ['Role', project.role],
     ['Year', year(project)],
     ['Images', String(project.images.length)],
-    ...(project.reference ? [['Note', 'Reference project by another designer']] : []),
   ]
 
   return (
     <Page title={`${project.title} | ${OWNER}`}>
       <Cover project={project} />
 
-      <section className="container-x grid gap-14 py-24 md:grid-cols-12 md:py-40">
-        <dl className="grid grid-cols-2 gap-x-6 gap-y-7 self-start text-sm md:col-span-3 md:grid-cols-1">
-          {meta.map(([k, v], i) => (
-            <Reveal key={k} delay={i * 0.08}>
-              <dt className="eyebrow text-muted">{k}</dt>
-              <dd className="mt-2">{v}</dd>
-            </Reveal>
-          ))}
-        </dl>
-        <div className="md:col-span-8 md:col-start-5">
-          {project.reference && (
-            <Reveal>
-              <span className="eyebrow mb-6 block text-accent">Notes from the original designer</span>
-            </Reveal>
-          )}
-          {lead && (
-            <RevealText as="p" text={lead} stagger={0.02} className="font-display text-3xl leading-[1.18] md:text-[2.9rem]" />
-          )}
-          {rest.map((para, i) => (
-            <Reveal key={i} delay={0.1}>
-              <p className="mt-8 max-w-2xl leading-relaxed text-muted">{para}</p>
-            </Reveal>
-          ))}
-          {project.skills.length > 0 && (
-            <Reveal delay={0.2}>
-              <p className="mt-12 border-t border-line pt-6 text-sm leading-loose text-muted">
-                {project.skills.join('  /  ')}
-              </p>
-            </Reveal>
-          )}
+      {/* Overview → key information → detailed description, each on its own labelled row */}
+      <section className="container-x py-24 md:py-36">
+        <div className="grid gap-6 md:grid-cols-12 md:gap-10">
+          <Reveal className="md:col-span-3">
+            <h2 className="eyebrow text-muted">Overview</h2>
+          </Reveal>
+          <div className="md:col-span-9">
+            <RevealText as="p" text={project.summary} stagger={0.02} className="font-display text-3xl leading-[1.2] md:text-[2.7rem]" />
+          </div>
+        </div>
+
+        <div className="mt-16 grid gap-6 border-t border-line pt-10 md:mt-24 md:grid-cols-12 md:gap-10">
+          <Reveal className="md:col-span-3">
+            <h2 className="eyebrow text-muted">Key information</h2>
+          </Reveal>
+          <div className="md:col-span-9">
+            <dl className="grid grid-cols-2 gap-x-6 gap-y-8 sm:grid-cols-4">
+              {meta.map(([k, v], i) => (
+                <Reveal key={k} delay={i * 0.06}>
+                  <dt className="eyebrow text-muted">{k}</dt>
+                  <dd className="mt-2">{v}</dd>
+                </Reveal>
+              ))}
+            </dl>
+            {project.skills.length > 0 && (
+              <Reveal delay={0.2} className="mt-10">
+                <h3 className="eyebrow text-muted">Technologies & skills</h3>
+                <ul className="mt-4 flex flex-wrap gap-2">
+                  {project.skills.map((sk) => (
+                    <li key={sk} className="rounded-full border border-line bg-surface px-3 py-1 text-sm">
+                      {sk}
+                    </li>
+                  ))}
+                </ul>
+              </Reveal>
+            )}
+          </div>
+        </div>
+
+        <div className="mt-16 grid gap-6 border-t border-line pt-10 md:mt-24 md:grid-cols-12 md:gap-10">
+          <Reveal className="md:col-span-3">
+            <h2 className="eyebrow text-muted">Detailed description</h2>
+            {project.reference && <p className="mt-3 text-sm text-muted">Notes from the original designer</p>}
+          </Reveal>
+          <div className="max-w-3xl space-y-6 text-lg leading-relaxed md:col-span-9">
+            {project.description.map((para, i) => (
+              <Reveal key={i} delay={i * 0.08}>
+                <p>{para}</p>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
+      <div className="container-x mb-8 flex items-baseline justify-between border-t border-line pt-10">
+        <h2 className="eyebrow text-muted">Gallery</h2>
+        <span className="hidden text-sm text-muted sm:inline">Select an image to view it full screen</span>
+      </div>
       <section className="container-x grid gap-8 md:grid-cols-12 md:gap-y-16">
         {project.images.map((img, i) => {
           const g = gallery[i % gallery.length]

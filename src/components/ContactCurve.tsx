@@ -52,9 +52,9 @@ function extremes(path: SVGPathElement) {
 }
 
 function useLayout() {
-  const [layout, setLayout] = useState<Layout>(() => (window.matchMedia('(min-width: 768px)').matches ? wide : tall))
+  const [layout, setLayout] = useState<Layout>(() => (window.matchMedia('(min-width: 1024px)').matches ? wide : tall))
   useLayoutEffect(() => {
-    const mq = window.matchMedia('(min-width: 768px)')
+    const mq = window.matchMedia('(min-width: 1024px)')
     const on = () => setLayout(mq.matches ? wide : tall)
     mq.addEventListener('change', on)
     return () => mq.removeEventListener('change', on)
@@ -79,7 +79,7 @@ export default function ContactCurve() {
 
   return (
     <motion.div
-      className="relative w-full"
+      className={`relative w-full ${vertical ? "mx-auto max-w-[520px]" : ""}`}
       style={{ aspectRatio: `${w} / ${h}` }}
       initial="hidden"
       whileInView="shown"

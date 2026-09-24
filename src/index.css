@@ -2,23 +2,24 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
-/* Paper and ink. Semantic colors swap in dark mode. */
+/* Paper and ink. Semantic colors swap in dark mode.
+   muted and accent keep at least 4.5:1 against bg and surface; line is dark enough to separate surfaces. */
 :root {
   --bg: #f3f0ea;
-  --surface: #ebe6dd;
+  --surface: #e9e4da;
   --fg: #171614;
-  --muted: #77726a;
-  --line: #d6d0c4;
-  --accent: #9a5b36;
+  --muted: #5c5750;
+  --line: #c8c0b1;
+  --accent: #8a4d2a;
   color-scheme: light;
 }
 .dark {
   --bg: #11110f;
-  --surface: #1b1a17;
+  --surface: #1c1b18;
   --fg: #ece7de;
-  --muted: #8f897f;
-  --line: #2e2c28;
-  --accent: #c98a5e;
+  --muted: #aaa396;
+  --line: #3d3a34;
+  --accent: #d69a6e;
   color-scheme: dark;
 }
 

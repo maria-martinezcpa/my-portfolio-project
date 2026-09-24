@@ -31,10 +31,9 @@ export default function ProjectTile({
         </h3>
         <span className="text-xs text-muted">{year(project)}</span>
         <span />
-        <p className="col-span-2 text-sm text-muted">
-          {project.category}
-          {project.reference && <> · Reference project</>}
-        </p>
+        <p className="col-span-2 text-sm text-muted">{project.category}</p>
+        <span />
+        <p className="col-span-2 mt-2 line-clamp-2 max-w-[48ch] text-[0.95rem] leading-relaxed">{project.summary}</p>
       </motion.div>
     </a>
   )

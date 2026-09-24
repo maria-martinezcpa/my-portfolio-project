@@ -96,7 +96,7 @@ export function RevealImage({
   return (
     <motion.div
       ref={ref}
-      className={`relative overflow-hidden bg-surface ${className}`}
+      className={`relative overflow-hidden bg-surface after:pointer-events-none after:absolute after:inset-0 after:ring-1 after:ring-inset after:ring-fg/15 ${className}`}
       style={ratio ? { aspectRatio: ratio } : undefined}
       initial={{ clipPath: 'inset(100% 0% 0% 0%)' }}
       whileInView={{ clipPath: 'inset(0% 0% 0% 0%)' }}

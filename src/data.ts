@@ -22,6 +22,8 @@ export interface Project {
   images: ProjectImage[]
   /** Another designer's project, shown for reference (their names are not published). */
   reference: boolean
+  /** One to three sentences shown before the detailed description. */
+  summary: string
   category: Category
 }
 
@@ -57,9 +59,27 @@ const categories: Record<string, Category> = {
   '09': 'Visualization',
 }
 
+// Short descriptions, written only from each project's own title, skills and description.
+const summaries: Record<string, string> = {
+  '01': 'A 3D house model built with Google Maps and Google Earth as the only source. It shows how a building can be modelled when no drawings are available.',
+  '02': 'A modern, contemporary interior design for a corporate office, modelled in Autodesk Revit and rendered with Enscape.',
+  '03': 'A deck plan prepared for a building permit, drawn with Autodesk AutoCAD and Revit.',
+  '04': 'A Revit model created from scan data of an existing building, turning the captured conditions into a usable 3D model.',
+  '05': 'A detailed model of a multi-family development — terrain, two multi-family residential buildings and several townhouses — based on existing site conditions and the client’s preliminary sketches, so the client could see how it would look in reality.',
+  '06': 'Drawings from a complete construction set for a two-storey residential building in Florida, with the model, drawings, specifications and details produced in Revit.',
+  '07': 'A standalone dialysis facility with 40 stations — 30 hemodialysis and 10 peritoneal dialysis — planned to meet growing demand in a comfortable, convenient and secure setting.',
+  '08': 'Architectural construction documents for a large private residence, produced in AutoCAD with a focus on accuracy and buildable detailing. Only limited excerpts are shown because of confidentiality agreements.',
+  '09': 'A warm, calming family living space defined by natural wood finishes, a vertical-panel TV feature wall and softly lit display niches.',
+}
+
 // Newest first
 export const projects: Project[] = sampleProjects
-  .map((p) => ({ ...p, reference: referenceIds.has(p.id), category: categories[p.id] ?? 'BIM Modeling' }))
+  .map((p) => ({
+    ...p,
+    reference: referenceIds.has(p.id),
+    summary: summaries[p.id] ?? '',
+    category: categories[p.id] ?? 'BIM Modeling',
+  }))
   .sort((a, b) => Date.parse(b.published) - Date.parse(a.published))
 
 export const year = (p: Project) => p.published.slice(-4)

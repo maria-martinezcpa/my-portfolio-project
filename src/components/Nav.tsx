@@ -40,19 +40,34 @@ export default function Nav({ route }: { route: Route }) {
     document.body.style.overflow = open ? 'hidden' : ''
   }, [open])
 
+  // Solid bar once the page scrolls; over the full-screen photos at the top of the
+  // home and project pages it sits on a dark scrim instead.
+  const [scrolled, setScrolled] = useState(() => window.scrollY > 24)
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+  const overPhoto = !scrolled && (route.name === 'home' || route.name === 'project')
+  const look = open
+    ? 'border-transparent text-bg'
+    : overPhoto
+      ? 'border-transparent bg-gradient-to-b from-black/60 to-transparent text-white'
+      : 'border-line bg-bg/90 text-fg shadow-[0_6px_24px_-12px_rgba(0,0,0,0.25)] backdrop-blur-md'
+
   return (
     <>
       <motion.header
-        className="fixed inset-x-0 top-0 z-50 text-white mix-blend-difference"
+        className={`fixed inset-x-0 top-0 z-50 border-b transition-[background-color,color,border-color,box-shadow] duration-500 ${look}`}
         initial={{ y: -40, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1.2, ease: EASE, delay: 0.2 }}
       >
-        <div className="container-x flex items-center justify-between py-6 md:py-8">
+        <div className={`container-x flex items-center justify-between transition-[padding] duration-500 ${scrolled && !open ? 'py-4' : 'py-6 md:py-7'}`}>
           <a href="#/" className="font-display text-2xl leading-none tracking-tight md:text-[1.7rem]">
             {OWNER}
           </a>
-          <span className="eyebrow hidden opacity-70 lg:block">{ROLE}</span>
+          <span className="eyebrow hidden opacity-80 lg:block">{ROLE}</span>
           <nav className="hidden items-center gap-9 md:flex" aria-label="Main">
             {links.map((l) => (
               <a

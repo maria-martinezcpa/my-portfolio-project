@@ -45,7 +45,7 @@ function Hero() {
             exit={{ opacity: 0, transition: { duration: 1.6, ease: EASE } }}
           />
         </AnimatePresence>
-        <div className="absolute inset-0 bg-gradient-to-b from-black/35 via-black/10 to-black/65" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/15 to-black/75" />
       </motion.div>
 
       <motion.div className="container-x relative flex h-full flex-col justify-end pb-10 md:pb-14" style={{ y: textY, opacity: fade }}>
@@ -78,7 +78,7 @@ function Hero() {
               transition={{ duration: 0.7, ease: EASE }}
             >
               <span className="font-display text-xl leading-tight md:text-2xl">{slide.title}</span>
-              <span className="opacity-60">{slide.reference ? 'Reference project' : slide.role}</span>
+              <span className="opacity-60">{slide.reference ? '' : slide.role}</span>
             </motion.a>
           </AnimatePresence>
           <span className="eyebrow hidden justify-self-center opacity-70 md:flex md:items-center md:gap-3">

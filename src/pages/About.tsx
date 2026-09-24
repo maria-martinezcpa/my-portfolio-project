@@ -38,7 +38,7 @@ export default function About() {
         <section className="container-x grid gap-12 md:grid-cols-12">
           <div className="md:col-span-7">
             <RevealImage src={image.src} ratio={image.width / image.height} className="w-full" />
-            <p className="mt-3 text-xs text-muted">Scan to Revit Model — reference project</p>
+            <p className="mt-3 text-xs text-muted">Scan to Revit Model</p>
           </div>
           <div className="self-end md:col-span-4 md:col-start-9">
             <RevealText
