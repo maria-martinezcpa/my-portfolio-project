@@ -93,15 +93,6 @@
   animation: marquee 38s linear infinite;
 }
 
-/* Hide the native cursor where the custom one is active */
-@media (pointer: fine) {
-  html.has-cursor,
-  html.has-cursor a,
-  html.has-cursor button {
-    cursor: none;
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

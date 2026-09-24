@@ -138,7 +138,7 @@ export default function Project({ project }: { project: P }) {
               type="button"
               className={`group block w-full text-left ${g.cell}`}
               onClick={() => setLightbox(i)}
-              data-cursor="Enlarge"
+             
               aria-label={`Open image ${i + 1} full screen`}
             >
               <RevealImage src={img.src} className="w-full" ratio={img.width / img.height} parallax={i % 3 === 0} />
@@ -151,7 +151,7 @@ export default function Project({ project }: { project: P }) {
       </section>
 
       {/* Next project */}
-      <a href={`#/work/${next.id}`} className="group relative mt-32 block h-[80svh] overflow-hidden bg-[#0d0d0c] text-white md:mt-48" data-cursor="Next">
+      <a href={`#/work/${next.id}`} className="group relative mt-32 block h-[80svh] overflow-hidden bg-[#0d0d0c] text-white md:mt-48">
         <img
           src={next.images[0]?.src}
           alt=""

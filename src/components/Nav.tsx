@@ -2,7 +2,9 @@ import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import { EMAILS, OWNER, ROLE } from '../data'
 import { EASE } from '../lib/motion'
+import { goBack, useBackToClose } from '../lib/history'
 import { routeKey, type Route } from '../lib/router'
+import { ArrowLeftIcon } from './Icons'
 import { useMode } from '../theme'
 
 const links = [
@@ -35,6 +37,7 @@ export default function Nav({ route }: { route: Route }) {
   const key = routeKey(route)
   const [openOn, setOpenOn] = useState<string | null>(null)
   const open = openOn === key
+  useBackToClose(open, () => setOpenOn(null))
 
   useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : ''
@@ -64,9 +67,28 @@ export default function Nav({ route }: { route: Route }) {
         transition={{ duration: 1.2, ease: EASE, delay: 0.2 }}
       >
         <div className={`container-x flex items-center justify-between transition-[padding] duration-500 ${scrolled && !open ? 'py-4' : 'py-6 md:py-7'}`}>
-          <a href="#/" className="font-display text-2xl leading-none tracking-tight md:text-[1.7rem]">
-            {OWNER}
-          </a>
+          <div className="flex items-center gap-3 md:gap-4">
+            <AnimatePresence initial={false}>
+              {route.name !== 'home' && !open && (
+                <motion.button
+                  type="button"
+                  onClick={() => goBack(route)}
+                  className="flex h-9 w-9 items-center justify-center rounded-full border border-current/40 transition-colors duration-300 hover:border-current hover:bg-current/10"
+                  aria-label="Go back"
+                  title="Back"
+                  initial={{ opacity: 0, x: -8, width: 0 }}
+                  animate={{ opacity: 1, x: 0, width: 36 }}
+                  exit={{ opacity: 0, x: -8, width: 0 }}
+                  transition={{ duration: 0.5, ease: EASE }}
+                >
+                  <ArrowLeftIcon className="h-4 w-4 shrink-0" />
+                </motion.button>
+              )}
+            </AnimatePresence>
+            <a href="#/" className="font-display text-2xl leading-none tracking-tight md:text-[1.7rem]">
+              {OWNER}
+            </a>
+          </div>
           <span className="eyebrow hidden opacity-80 lg:block">{ROLE}</span>
           <nav className="hidden items-center gap-9 md:flex" aria-label="Main">
             {links.map((l) => (

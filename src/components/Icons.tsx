@@ -27,6 +27,14 @@ export function ArrowIcon(props: IconProps) {
   )
 }
 
+export function ArrowLeftIcon(props: IconProps) {
+  return (
+    <Line {...props}>
+      <path d="M20 12H4M10 6l-6 6 6 6" />
+    </Line>
+  )
+}
+
 export function ArrowUpRightIcon(props: IconProps) {
   return (
     <Line {...props}>

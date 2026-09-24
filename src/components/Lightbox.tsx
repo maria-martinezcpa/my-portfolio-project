@@ -1,5 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion'
 import { useEffect } from 'react'
+import { useBackToClose } from '../lib/history'
 import type { ProjectImage } from '../data'
 import { EASE } from '../lib/motion'
 
@@ -18,6 +19,7 @@ export default function Lightbox({
   onIndex: (i: number) => void
 }) {
   const open = index !== null
+  useBackToClose(open, onClose)
 
   useEffect(() => {
     if (!open) return
@@ -71,7 +73,6 @@ export default function Lightbox({
                   e.stopPropagation()
                   onIndex((index + 1) % images.length)
                 }}
-                data-cursor="Next"
               />
             </AnimatePresence>
           </div>

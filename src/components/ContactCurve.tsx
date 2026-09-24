@@ -134,7 +134,7 @@ export default function ContactCurve() {
             <motion.a
               href={item.href}
               {...(item.external && { target: '_blank', rel: 'noopener noreferrer' })}
-              data-cursor="Open"
+             
               className={`group absolute flex w-max max-w-[62vw] items-center gap-4 md:max-w-none ${
                 place === 'right'
                   ? 'left-7 -translate-y-1/2'

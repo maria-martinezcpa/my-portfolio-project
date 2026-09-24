@@ -1,6 +1,5 @@
 import { AnimatePresence } from 'framer-motion'
 import { useState } from 'react'
-import Cursor from './components/Cursor'
 import Nav from './components/Nav'
 import Preloader from './components/Preloader'
 import { findProject } from './data'
@@ -61,7 +60,6 @@ export default function App() {
   return (
     <IntroContext.Provider value={introDone}>
       {!introDone && <Preloader onDone={finishIntro} />}
-      <Cursor />
       <Nav route={route} />
       <main>
         <AnimatePresence mode="wait" onExitComplete={() => window.scrollTo(0, 0)}>

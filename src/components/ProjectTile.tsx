@@ -16,7 +16,7 @@ export default function ProjectTile({
 }) {
   const cover = project.images[0]
   return (
-    <a href={`#/work/${project.id}`} className={`group block ${className}`} data-cursor="View">
+    <a href={`#/work/${project.id}`} className={`group block ${className}`}>
       {cover && <RevealImage src={cover.src} alt={project.title} className={aspect} />}
       <motion.div
         className="mt-5 grid grid-cols-[auto_1fr_auto] items-baseline gap-x-4 gap-y-1"

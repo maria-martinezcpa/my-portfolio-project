@@ -68,8 +68,10 @@ export function Reveal({
   )
 }
 
-// An image that is unveiled from the bottom, settles from a slight zoom,
-// drifts with the scroll, and scales slowly on hover.
+// A project image in a soft "gallery mount": a light matte border with rounded
+// corners and a diffuse shadow. It is unveiled from the bottom, settles from a
+// slight zoom, drifts with the scroll, and on hover lifts gently while a soft
+// sheen passes across the picture.
 export function RevealImage({
   src,
   alt = '',
@@ -81,6 +83,7 @@ export function RevealImage({
 }: {
   src: string
   alt?: string
+  /** sizing for the picture itself, e.g. an aspect-ratio class */
   className?: string
   parallax?: boolean
   delay?: number
@@ -95,29 +98,41 @@ export function RevealImage({
 
   return (
     <motion.div
-      ref={ref}
-      className={`relative overflow-hidden bg-surface after:pointer-events-none after:absolute after:inset-0 after:ring-1 after:ring-inset after:ring-fg/15 ${className}`}
-      style={ratio ? { aspectRatio: ratio } : undefined}
-      initial={{ clipPath: 'inset(100% 0% 0% 0%)' }}
-      whileInView={{ clipPath: 'inset(0% 0% 0% 0%)' }}
+      className="relative rounded-[14px] bg-gradient-to-b from-white/75 to-surface p-1.5 shadow-[0_1px_2px_rgba(23,22,20,0.05),0_14px_36px_-16px_rgba(23,22,20,0.28)] ring-1 ring-black/[0.04] transition-[translate,box-shadow] duration-700 ease-[var(--ease-expo)] group-hover:-translate-y-1 group-hover:shadow-[0_2px_4px_rgba(23,22,20,0.05),0_26px_52px_-20px_rgba(23,22,20,0.34)] md:p-2 dark:from-white/[0.07] dark:to-white/[0.02] dark:shadow-[0_18px_44px_-20px_rgba(0,0,0,0.85)] dark:ring-white/[0.06]"
+      initial={{ opacity: 0, y: 28 }}
+      whileInView={{ opacity: 1, y: 0 }}
       viewport={inView}
-      transition={{ duration: 1.4, ease: EASE, delay }}
+      transition={{ duration: 1.2, ease: EASE, delay }}
     >
-      <motion.div className="absolute inset-x-0 -inset-y-[8%]" style={parallax && !reduce ? { y } : undefined}>
-        {/* Hover zoom lives on its own layer so it never fights the entrance animation */}
-        <div className="h-full w-full transition-transform duration-[1600ms] ease-[var(--ease-expo)] group-hover:scale-[1.045]">
-          <motion.img
-            src={src}
-            alt={alt}
-            loading={eager ? 'eager' : 'lazy'}
-            draggable={false}
-            className="h-full w-full object-cover"
-            initial={{ scale: 1.25 }}
-            whileInView={{ scale: 1 }}
-            viewport={inView}
-            transition={{ duration: 1.8, ease: EASE, delay }}
-          />
-        </div>
+      <motion.div
+        ref={ref}
+        className={`relative overflow-hidden rounded-[9px] bg-surface after:pointer-events-none after:absolute after:inset-0 after:rounded-[inherit] after:ring-1 after:ring-inset after:ring-black/[0.06] ${className}`}
+        style={ratio ? { aspectRatio: ratio } : undefined}
+        initial={{ clipPath: 'inset(100% 0% 0% 0% round 9px)' }}
+        whileInView={{ clipPath: 'inset(0% 0% 0% 0% round 9px)' }}
+        viewport={inView}
+        transition={{ duration: 1.4, ease: EASE, delay: delay + 0.1 }}
+      >
+        <motion.div className="absolute inset-x-0 -inset-y-[8%]" style={parallax && !reduce ? { y } : undefined}>
+          {/* Hover zoom lives on its own layer so it never fights the entrance animation */}
+          <div className="h-full w-full transition-transform duration-[1600ms] ease-[var(--ease-expo)] group-hover:scale-[1.035]">
+            <motion.img
+              src={src}
+              alt={alt}
+              loading={eager ? 'eager' : 'lazy'}
+              draggable={false}
+              className="h-full w-full object-cover"
+              initial={{ scale: 1.2 }}
+              whileInView={{ scale: 1 }}
+              viewport={inView}
+              transition={{ duration: 1.8, ease: EASE, delay }}
+            />
+          </div>
+        </motion.div>
+        <span
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 -translate-x-full bg-[linear-gradient(110deg,transparent_35%,rgba(255,255,255,0.22)_50%,transparent_65%)] transition-transform duration-[1400ms] ease-[var(--ease-expo)] group-hover:translate-x-full"
+        />
       </motion.div>
     </motion.div>
   )

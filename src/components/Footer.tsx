@@ -8,7 +8,7 @@ export default function Footer({ cta = true }: { cta?: boolean }) {
   return (
     <footer className="container-x pb-8 pt-24 md:pt-40">
       {cta && (
-        <a href="#/contact" className="group block border-t border-line pt-10" data-cursor="Write">
+        <a href="#/contact" className="group block border-t border-line pt-10">
           <span className="eyebrow text-muted">Next</span>
           <div className="mt-6 flex items-end justify-between gap-6">
             <RevealText
