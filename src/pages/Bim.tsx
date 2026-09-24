@@ -50,19 +50,19 @@ function Section({
 
 const P = ({ children }: { children: ReactNode }) => (
   <Reveal y={20}>
-    <p className="max-w-[82ch]">{children}</p>
+    <p>{children}</p>
   </Reveal>
 )
 
 const facts = [
   ['ISO 19650', 'Information management'],
-  ['3Dâ€“7D', 'Dimensions of data'],
-  ['LOD 100â€“500', 'Levels of development'],
+  ['3D–7D', 'Dimensions of data'],
+  ['LOD 100–500', 'Levels of development'],
 ]
 
 const standards = [
   ['ISO 19650', 'Managing information with BIM'],
-  ['IFC Â· ISO 16739', 'Open model exchange'],
+  ['IFC · ISO 16739', 'Open model exchange'],
   ['BCF', 'Issues between teams'],
   ['AIA / BIMForum', 'Level of development'],
 ]
@@ -109,9 +109,9 @@ function LodScale() {
       </div>
       <motion.div key={hover} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: EASE }} className="mt-6 border-l border-accent pl-5">
         <div className="eyebrow text-accent">
-          LOD {lod[hover][0]} Â· {lod[hover][1]}
+          LOD {lod[hover][0]} · {lod[hover][1]}
         </div>
-        <p className="mt-2 max-w-[52ch]">{lod[hover][2]}</p>
+        <p className="mt-2">{lod[hover][2]}</p>
       </motion.div>
     </div>
   )
@@ -128,7 +128,7 @@ const dims = [
 const stages = [
   ['Design', 'Architects and engineers model their disciplines, test options and federate models to find clashes before drawings are issued.'],
   ['Construction', 'Contractors take quantities, plan sequences, prefabricate components and resolve site questions against the model.'],
-  ['Operation', 'Owners receive structured asset data â€” equipment, finishes, warranties â€” to run and maintain the building.'],
+  ['Operation', 'Owners receive structured asset data — equipment, finishes, warranties — to run and maintain the building.'],
 ]
 
 const roles = [
@@ -144,24 +144,24 @@ export default function Bim() {
 
   return (
     <Page title={`What is BIM | ${OWNER}`}>
-      <header className="container-x grid items-center gap-10 pb-8 pt-32 md:grid-cols-12 md:gap-12 md:pt-36">
-        <div className="md:col-span-5">
+      <header className="container-x grid items-start gap-8 pb-8 pt-28 md:grid-cols-12 md:gap-8 md:pt-32">
+        <div className="md:col-span-5 md:pt-6">
           <motion.span className="eyebrow text-muted" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4, duration: 1 }}>
             A short guide
           </motion.span>
-          <h1 className="mt-5 font-display text-[16vw] leading-[0.9] tracking-[-0.03em] md:text-[6.5vw]">
+          <h1 className="mt-4 font-display text-[16vw] leading-[0.95] tracking-[-0.02em] md:text-[5.5vw]">
             <RevealText text="What is" instant delay={0.3} className="block" />
             <RevealText text="BIM?" instant delay={0.45} className="block italic" />
           </h1>
-          <Reveal delay={0.7} className="mt-8 space-y-4 text-lg leading-relaxed text-fg/80">
+          <Reveal delay={0.7} className="mt-7 space-y-4 text-lg leading-relaxed text-fg/80">
             <p>
-              <strong className="font-medium text-fg">Building Information Modelling (BIM)</strong> is the process of
-              creating and managing a shared, data-rich 3D model of a building across its whole life.
+              <strong className="font-medium text-fg">Building Information Modelling (BIM)</strong> is a way of designing,
+              building and running a building from one shared digital model.
             </p>
             <p>
-              Every wall, slab, door and duct in the model is an object that carries its own information: type, size,
-              material and performance. Plans, sections, schedules and quantities are all generated from that one
-              coordinated source, so architects, engineers, builders and owners work from the same information.
+              Every element in that model — wall, slab, door or duct — is an object that knows what it is: its type, size,
+              material and performance. Plans, sections, schedules and quantities are simply views of the model, so the
+              whole team always works from the same, up-to-date information.
             </p>
           </Reveal>
           <Reveal delay={0.85} className="mt-10 grid grid-cols-3 gap-4 border-t border-line pt-6">
@@ -173,14 +173,14 @@ export default function Bim() {
             ))}
           </Reveal>
         </div>
-        <div className="md:col-span-7">
+        <div className="md:col-span-7 md:-mr-[3vw] md:-mt-4">
           <AxonDrawing />
         </div>
       </header>
 
       <div className="container-x grid md:grid-cols-12 md:gap-12">
         {/* Sticky index with progress, plus the key standards at a glance */}
-        <aside className="hidden md:col-span-4 md:block">
+        <aside className="hidden md:col-span-4 md:block xl:col-span-3">
           <div className="sticky top-28 space-y-5 pt-16">
             <nav className="rounded-2xl border border-line bg-surface/60 p-6" aria-label="Guide sections">
               <div className="flex items-center justify-between">
@@ -206,7 +206,7 @@ export default function Bim() {
                         document.getElementById(s.id)?.scrollIntoView({ behavior: 'smooth' })
                       }}
                       aria-current={active === s.id ? 'true' : undefined}
-                      className={`flex items-center gap-4 rounded-lg px-2 py-2.5 text-base transition-colors duration-500 ${
+                      className={`flex items-center gap-4 rounded-lg px-3 py-3 text-lg transition-colors duration-500 ${
                         active === s.id ? 'bg-bg font-medium text-fg' : 'text-muted hover:text-fg'
                       }`}
                     >
@@ -221,7 +221,7 @@ export default function Bim() {
             </nav>
             <div className="rounded-2xl border border-line p-6">
               <span className="eyebrow text-muted">Key standards</span>
-              <dl className="mt-4 space-y-3 text-sm">
+              <dl className="mt-4 space-y-3 text-[0.95rem]">
                 {standards.map(([k, v]) => (
                   <div key={k} className="flex justify-between gap-4 border-b border-line pb-3 last:border-0 last:pb-0">
                     <dt className="font-medium">{k}</dt>
@@ -233,12 +233,12 @@ export default function Bim() {
           </div>
         </aside>
 
-        <article className="md:col-span-8">
+        <article className="md:col-span-8 xl:col-span-9">
           <Section id="definition" n={1} title="Definition" onActive={setActive}>
             <Reveal y={20}>
               <blockquote className="border-l border-accent pl-6 font-display text-3xl leading-snug md:text-4xl">
-                â€œUse of a shared digital representation of a built asset to facilitate design, construction and operation
-                processes to form a reliable basis for decisions.â€
+                “Use of a shared digital representation of a built asset to facilitate design, construction and operation
+                processes to form a reliable basis for decisions.”
                 <footer className="eyebrow mt-4 font-sans text-muted">ISO 19650-1</footer>
               </blockquote>
             </Reveal>
@@ -270,7 +270,7 @@ export default function Bim() {
           </Section>
 
           <Section id="dimensions" n={4} title="Dimensions" onActive={setActive}>
-            <P>Each â€œdimensionâ€ adds another kind of information to the same model.</P>
+            <P>Each “dimension” adds another kind of information to the same model.</P>
             <ul className="divide-y divide-line border-y border-line">
               {dims.map(([d, t, text], i) => (
                 <motion.li
@@ -312,7 +312,7 @@ export default function Bim() {
           <Section id="standards" n={6} title="Standards & collaboration" onActive={setActive}>
             <P>
               <strong className="font-medium">ISO 19650</strong> sets out how information is specified, produced and
-              exchanged on a project: the clientâ€™s information requirements, a BIM Execution Plan that answers them, and a
+              exchanged on a project: the client’s information requirements, a BIM Execution Plan that answers them, and a
               common data environment (CDE) where every file moves through the states Work in progress, Shared, Published
               and Archived.
             </P>

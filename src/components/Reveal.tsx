@@ -25,7 +25,7 @@ export function RevealText({
       {/* inline, not display:contents, so the viewport observer has a box to watch */}
       <motion.span className="inline" initial="hidden" {...trigger} aria-hidden="true">
         {words.map((w, i) => (
-          <span key={i} className="inline-block overflow-hidden pb-[0.12em] pr-[0.14em] -mb-[0.12em] -mr-[0.14em] align-bottom">
+          <span key={i} className="-mx-[0.14em] -mb-[0.12em] inline-block overflow-hidden px-[0.14em] pb-[0.12em] align-bottom">
             <motion.span
               className="inline-block will-change-transform"
               variants={{
