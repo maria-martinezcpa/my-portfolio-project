@@ -9,11 +9,11 @@ export default function Marquee({ words }: { words: string[] }) {
   const line = [...words, ...words]
 
   return (
-    <div ref={ref} className="overflow-hidden border-y border-line py-8 md:py-12" aria-hidden="true">
+    <div ref={ref} className="overflow-hidden border-y border-line py-5 md:py-7" aria-hidden="true">
       <motion.div style={{ x }}>
         <div className="animate-marquee flex w-max items-center whitespace-nowrap">
           {line.map((w, i) => (
-            <span key={i} className="flex items-center font-display text-[13vw] leading-none md:text-[8.5vw]">
+            <span key={i} className="flex items-center font-display text-[9vw] leading-none md:text-[4.5vw]">
               <span className={i % 2 ? 'italic text-muted' : ''}>{w}</span>
               <span className="mx-[3vw] inline-block h-[0.12em] w-[0.12em] rounded-full bg-accent" />
             </span>

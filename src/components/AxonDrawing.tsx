@@ -97,7 +97,7 @@ export default function AxonDrawing({ className = '' }: { className?: string }) 
 
   return (
     <svg
-      viewBox="0 0 600 560"
+      viewBox="0 70 600 420"
       className={`h-auto w-full text-fg ${className}`}
       fill="none"
       stroke="currentColor"

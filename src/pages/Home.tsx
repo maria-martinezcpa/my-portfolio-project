@@ -13,7 +13,7 @@ import { packedGrid } from '../lib/grid'
 import { EASE } from '../lib/motion'
 
 const SLIDE_MS = 6500
-const heroIds = ['02', '07', '05', '09']
+const heroIds = ['02', '07', '09']
 const heroSlides = heroIds.map(findProject).filter((p): p is Project => Boolean(p))
 
 function Hero() {
@@ -119,18 +119,18 @@ export default function Home() {
       <Hero />
 
       {/* Statement */}
-      <section className="container-x grid gap-10 py-28 md:grid-cols-12 md:py-44">
+      <section className="container-x grid gap-8 py-16 md:grid-cols-12 md:py-24">
         <Reveal className="md:col-span-3">
           <span className="eyebrow text-muted">(01) Practice</span>
         </Reveal>
         <div className="md:col-span-9">
           <RevealText
             as="p"
-            className="font-display text-[2.1rem] leading-[1.12] tracking-[-0.01em] md:text-[4.2vw]"
+            className="font-display text-[2.1rem] leading-[1.12] tracking-[-0.01em] md:text-[2.6vw]"
             stagger={0.025}
             text="Every building is built twice: first as information, then on site. I work on the first one — careful Revit models, coordination and drawing sets for architecture."
           />
-          <Reveal delay={0.4} className="mt-12">
+          <Reveal delay={0.4} className="mt-8">
             <a href="#/about" className="group inline-flex items-center gap-3 text-sm">
               <span className="link-line pb-0.5">About me</span>
               <ArrowIcon className="h-4 w-4 transition-transform duration-500 group-hover:translate-x-1.5" />
@@ -141,9 +141,9 @@ export default function Home() {
 
       {/* Selected work */}
       <section className="container-x">
-        <div className="mb-14 flex items-end justify-between border-b border-line pb-6 md:mb-24">
+        <div className="mb-10 flex items-end justify-between border-b border-line pb-5 md:mb-14">
           <div className="flex items-baseline gap-4">
-            <RevealText as="h2" text="Selected work" className="font-display text-5xl md:text-7xl" />
+            <RevealText as="h2" text="Selected work" className="font-display text-4xl md:text-6xl" />
             <span className="text-sm text-muted">({String(projects.length).padStart(2, '0')})</span>
           </div>
           <a href="#/work" className="link-line pb-0.5 text-sm">
@@ -157,16 +157,16 @@ export default function Home() {
         </div>
       </section>
 
-      <div className="mt-32 md:mt-52">
+      <div className="mt-20 md:mt-28">
         <Marquee words={['Revit models', 'Construction documents', 'Scan to BIM', 'Coordination']} />
       </div>
 
       {/* BIM teaser */}
-      <section className="container-x grid items-center gap-16 py-28 md:grid-cols-12 md:py-44">
-        <div className="md:col-span-7">
+      <section className="container-x grid items-center gap-10 py-14 md:grid-cols-12 md:gap-12 md:py-20">
+        <div className="md:col-span-8 md:-ml-[2vw]">
           <AxonDrawing />
         </div>
-        <div className="md:col-span-4 md:col-start-9">
+        <div className="md:col-span-4">
           <Reveal>
             <span className="eyebrow text-muted">(02) What is BIM</span>
           </Reveal>
