@@ -1,6 +1,5 @@
-// What is BIM: a detailed BIM building placed on a GIS city map (terrain, streets, parcels,
-// utilities, context massing), the project lifecycle that shares the model, the BIM dimensions
-// (3D-7D), and how BIM combines with GIS and software into a digital twin.
+// What is BIM: a detailed BIM building on its site (terrain, streets, parcels, utilities,
+// surrounding buildings), the project lifecycle that shares the model, and the BIM dimensions (3D-7D).
 type P3 = [number, number, number]
 
 const S = 20
@@ -54,8 +53,7 @@ const DUCT = '#34d399'
 const SLAB = '#94a3b8'
 const ENERGY = '#a3e635'
 const OPS = '#f472b6'
-const GIS = '#4ade80'
-const CODE = '#c084fc'
+const SITE = '#4ade80'
 const CITY = '#64748b'
 const POWER = '#fbbf24'
 
@@ -116,7 +114,7 @@ function Dimension({ i, d, title, sub, color }: { i: number; d: string; title: s
   )
 }
 
-// City blocks on the GIS map (x 0-12, y 0-10), split by two streets.
+// City blocks around the site (x 0-12, y 0-10), split by two streets.
 const blocks: [P3, P3][] = [
   [[0, 0, 0], [5.5, 4.5, 0]],
   [[6.5, 0, 0], [12, 4.5, 0]],
@@ -124,7 +122,7 @@ const blocks: [P3, P3][] = [
   [[6.5, 5.5, 0], [12, 10, 0]],
 ]
 
-// Context buildings from GIS massing, back to front.
+// Surrounding buildings, back to front.
 const context: [P3, P3][] = [
   [[0.5, 0.5, 0], [2.5, 4, 5]],
   [[3, 0.5, 0], [5, 2, 3]],
@@ -151,20 +149,18 @@ export default function BimIllustration() {
 
   return (
     <svg
-      viewBox="0 0 600 920"
+      viewBox="0 0 600 772"
       className="bim-illustration"
       role="img"
       aria-labelledby="bim-svg-title bim-svg-desc"
       fontFamily="Inter, system-ui, 'Segoe UI', sans-serif"
     >
-      <title id="bim-svg-title">BIM and GIS: a building in its city</title>
+      <title id="bim-svg-title">BIM: a building model and its data</title>
       <desc id="bim-svg-desc">
-        A detailed BIM building, whose elements carry data such as floors, floor area and parcel, is placed at real
-        coordinates on a GIS city map. The map supplies terrain, streets, parcels, a park, underground water and power
-        networks, and 3D massing of the surrounding buildings. The same
+        A detailed BIM building, whose elements carry data such as floors, floor area and parcel, sits on its site with
+        terrain, streets, parcels, a park, underground water and power lines, and the surrounding buildings. The same
         model is shared through design, construction and operation, and extends into 4D time, 5D cost, 6D
-        sustainability and 7D facility management. Combined with GIS (terrain, parcels, networks) and software (Revit
-        API, Python, web apps), BIM becomes a digital twin of the building in its real-world context.
+        sustainability and 7D facility management.
       </desc>
 
       <defs>
@@ -172,33 +168,27 @@ export default function BimIllustration() {
           <path d="M24 0H0V24" fill="none" style={{ stroke: 'var(--visual-grid)' }} strokeWidth="1" />
         </pattern>
       </defs>
-      <rect width="600" height="920" fill="url(#bim-grid)" opacity="0.6" />
+      <rect width="600" height="772" fill="url(#bim-grid)" opacity="0.6" />
 
       {/* Title */}
       <text x={300} y={38} fill="#f8fafc" fontSize={21} fontWeight={800}>
-        BIM + GIS
+        BIM model
       </text>
       <text x={300} y={58} fill="#94a3b8" fontSize={12}>
-        The building, placed in its real city
+        The building, its data and its site
       </text>
 
-      {/* GIS: terrain slab and map grid */}
+      {/* Site: terrain slab */}
       <Box a={[0, 0, -0.6]} b={[12, 10, 0]} color={SLAB} alpha={0.45} />
-      {[2, 4, 6, 8, 10].map((x) => (
-        <Line key={`gx${x}`} a={[x, 0, 0]} b={[x, 10, 0]} color={GIS} width={0.6} dash="2 4" />
-      ))}
-      {[2, 4, 6, 8].map((y) => (
-        <Line key={`gy${y}`} a={[0, y, 0]} b={[12, y, 0]} color={GIS} width={0.6} dash="2 4" />
-      ))}
 
-      {/* GIS: parcels, park and streets */}
+      {/* Site: parcels, park and streets */}
       {blocks.map(([a, b], i) => (
         <polygon
           key={`blk${i}`}
           points={flat(a, b)}
-          fill={GIS}
+          fill={SITE}
           fillOpacity={i === 2 ? 0.2 : 0.05}
-          stroke={GIS}
+          stroke={SITE}
           strokeOpacity={i === 3 ? 0.9 : 0.4}
           strokeWidth={i === 3 ? 1.5 : 1}
           strokeDasharray={i === 3 ? undefined : '4 3'}
@@ -209,12 +199,12 @@ export default function BimIllustration() {
       <Line a={[0, 5, 0]} b={[12, 5, 0]} color="#e2e8f0" width={0.8} dash="5 5" />
       <Line a={[6, 0, 0]} b={[6, 10, 0]} color="#e2e8f0" width={0.8} dash="5 5" />
 
-      {/* GIS: underground utility networks */}
+      {/* Site: underground utility networks */}
       <Line a={[0, 5, -0.35]} b={[12, 5, -0.35]} color={MEP} width={2} dash="6 4" />
       <Line a={[6, 0, -0.35]} b={[6, 10, -0.35]} color={POWER} width={2} dash="6 4" />
       <Line a={[9, 5, -0.35]} b={[9, 6.5, -0.35]} color={MEP} width={2} />
 
-      {/* GIS: context buildings (3D massing) */}
+      {/* Site: context buildings (3D massing) */}
       {context.map(([a, b], i) => (
         <Box key={`ctx${i}`} a={a} b={b} color={CITY} alpha={1.2} />
       ))}
@@ -223,7 +213,7 @@ export default function BimIllustration() {
         return (
           <g key={`t${x}${y}`}>
             <Line a={[x, y, 0]} b={[x, y, 0.5]} color="#a16207" width={2} />
-            <circle cx={tx} cy={ty} r={7} fill={GIS} fillOpacity={0.7} />
+            <circle cx={tx} cy={ty} r={7} fill={SITE} fillOpacity={0.7} />
           </g>
         )
       })}
@@ -242,18 +232,18 @@ export default function BimIllustration() {
         </g>
       ))}
 
-      {/* Geolocation pin */}
-      <Line a={[9.25, 7.75, 4]} b={[9.25, 7.75, 5.1]} color={GIS} width={1.5} />
-      <circle cx={pin[0]} cy={pin[1]} r={7} fill={GIS} />
+      {/* Selected element marker */}
+      <Line a={[9.25, 7.75, 4]} b={[9.25, 7.75, 5.1]} color={SITE} width={1.5} />
+      <circle cx={pin[0]} cy={pin[1]} r={7} fill={SITE} />
       <circle cx={pin[0]} cy={pin[1]} r={2.5} style={{ fill: 'var(--visual-bg)' }} />
 
       {/* Layer labels */}
-      <Label at={[11.5, 0.5, 3]} y={200} title="City context" sub="3D massing from GIS" color={CITY} />
+      <Label at={[11.5, 0.5, 3]} y={200} title="Surroundings" sub="Neighbouring buildings" color={CITY} />
       <Label at={[11, 6.5, 3]} y={300} title="BIM building" sub="Detailed model + data" color={ARCH} />
-      <Label at={[12, 5, 0]} y={410} title="Streets & parcels" sub="GIS map layers" color={GIS} />
+      <Label at={[12, 5, 0]} y={410} title="Site & streets" sub="Parcel and landscape" color={SITE} />
       <Label at={[12, 8, -0.3]} y={500} title="Terrain & utilities" sub="Ground, water, power" color={MEP} />
 
-      {/* The BIM model's data, linked to GIS */}
+      {/* The BIM model's data */}
       <line x1={186} y1={80} x2={pin[0] - 6} y2={pin[1] - 4} stroke="#e2e8f0" strokeWidth={1} strokeDasharray="3 3" />
       <g transform="translate(12 12)">
         <rect width={174} height={94} rx={10} style={{ fill: 'var(--visual-card)' }} stroke="#334155" />
@@ -264,10 +254,10 @@ export default function BimIllustration() {
           5 floors · 4,800 m² GFA
         </text>
         <text x={12} y={59} fill="#94a3b8" fontSize={11.5}>
-          Parcel 12-034 (from GIS)
+          Parcel 12-034
         </text>
-        <text x={12} y={76} fill={GIS} fontSize={11.5}>
-          10.776° N, 106.701° E
+        <text x={12} y={76} fill={SITE} fontSize={11.5}>
+          Level 1 · FFL +0.00
         </text>
       </g>
 
@@ -287,26 +277,6 @@ export default function BimIllustration() {
       <Dimension i={2} d="5D" title="Cost" sub="Quantities, budget" color={DUCT} />
       <Dimension i={3} d="6D" title="Energy" sub="Sustainability" color={ENERGY} />
       <Dimension i={4} d="7D" title="Operate" sub="Facility mgmt" color={OPS} />
-
-      {/* BIM + GIS + software */}
-      <Heading y={782}>BIM + GIS + SOFTWARE: FROM BUILDING TO CITY</Heading>
-      <Stage x={12} y={792} title="BIM · the building" who="Elements with data" does="Walls, systems, quantities" color={ARCH} />
-      <Stage x={211} y={792} title="GIS · the location" who="Terrain, parcels, networks" does="Where it sits in the city" color={GIS} />
-      <Stage x={410} y={792} title="Software · the link" who="Revit API, Python, web" does="Automate, connect, share" color={CODE} />
-      {[199, 398].map((x) => (
-        <text key={`plus${x}`} x={x} y={830} fill="#94a3b8" fontSize={18} fontWeight={700} textAnchor="middle">
-          +
-        </text>
-      ))}
-      <g transform="translate(12 868)">
-        <rect width={576} height={40} rx={10} style={{ fill: 'var(--visual-card)' }} stroke="#475569" />
-        <text x={14} y={25} fill="#f8fafc" fontSize={13} fontWeight={700}>
-          = Digital twin
-        </text>
-        <text x={116} y={25} fill="#94a3b8" fontSize={11.5}>
-          The building in its real-world context, with live data in apps and dashboards
-        </text>
-      </g>
     </svg>
   )
 }

@@ -10,7 +10,7 @@ export default function Footer() {
             <LogoMark />
             <span>{OWNER}</span>
           </a>
-          <p>{ROLE}. Revit models, GIS context and the software that connects them.</p>
+          <p>{ROLE}. Architectural Revit models, coordination and construction documents.</p>
         </div>
 
         <nav className="footer-col" aria-label="Footer">

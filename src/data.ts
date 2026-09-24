@@ -24,11 +24,11 @@ export interface Project {
   category: Category
 }
 
-export const CATEGORIES = ['BIM Modeling', 'Drawings', 'Visualization', 'GIS & Mapping'] as const
+export const CATEGORIES = ['BIM Modeling', 'Drawings', 'Visualization'] as const
 export type Category = (typeof CATEGORIES)[number]
 
 export const OWNER = 'David Nguyen'
-export const ROLE = 'BIM Modeler, GIS & Software Developer'
+export const ROLE = 'BIM Modeler & BIM Specialist'
 export const EMAILS = ['davidng924@gmail.com', 'stick0427@gmail.com']
 export const TELEGRAM = 'https://t.me/housekeeper5252'
 export const PHONE = '+1 (323) 505 2719'
@@ -64,8 +64,6 @@ const categories: Record<string, Category> = {
   '07': 'Drawings',
   '08': 'Drawings',
   '09': 'Visualization',
-  '10': 'GIS & Mapping',
-  '11': 'GIS & Mapping',
 }
 
 // Newest first
@@ -75,39 +73,25 @@ export const projects: Project[] = sampleProjects
 
 export interface SkillGroup {
   title: string
-  icon: 'cube' | 'map' | 'code'
+  icon: 'cube' | 'drawing' | 'layers'
   items: string[]
 }
 
 export const skillGroups: SkillGroup[] = [
   {
-    title: 'BIM & drafting',
+    title: 'BIM modeling',
     icon: 'cube',
-    items: [
-      'Autodesk Revit',
-      'BIM Modeling',
-      'Scan to BIM',
-      'Construction Documents',
-      'AutoCAD',
-      '3D Visualization',
-      'PDF to CAD Conversion',
-    ],
+    items: ['Autodesk Revit', 'BIM Modeling', 'Scan to BIM', '3D Visualization'],
   },
   {
-    title: 'GIS & mapping',
-    icon: 'map',
-    items: [
-      'ArcGIS Pro & QGIS',
-      'BIM-GIS Integration',
-      'Georeferencing',
-      'Google Earth (KMZ)',
-      'Site Selection & Zoning Analysis',
-    ],
+    title: 'Drawings & documentation',
+    icon: 'drawing',
+    items: ['Construction Documents', 'AutoCAD', 'PDF to CAD Conversion', 'Microsoft Excel'],
   },
   {
-    title: 'Software & data',
-    icon: 'code',
-    items: ['Revit API (C#)', 'Dynamo', 'Python', 'React & TypeScript', 'IFC & openBIM', 'Microsoft Excel'],
+    title: 'BIM coordination',
+    icon: 'layers',
+    items: ['IFC & openBIM', 'Dynamo for Revit'],
   },
 ]
 

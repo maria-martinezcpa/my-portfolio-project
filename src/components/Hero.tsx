@@ -3,24 +3,20 @@ import HeroVisual from './HeroVisual'
 import { ArrowIcon } from './Icons'
 
 const stats = [
-  { value: '3', label: 'Disciplines', note: 'BIM · GIS · Software' },
-  { value: `${skills.length}`, label: 'Tools & skills', note: 'Revit to React' },
-  { value: 'RVT · DWG · IFC · KMZ', label: 'File formats', note: 'What I work in daily' },
+  { value: 'Revit', label: 'Core tool', note: 'From model to sheets' },
+  { value: `${skills.length}`, label: 'Tools & skills', note: 'Revit to AutoCAD' },
+  { value: 'RVT · DWG · IFC · PDF', label: 'File formats', note: 'What I work in daily' },
 ]
 
 const tools = [
   'Autodesk Revit',
   'AutoCAD',
-  'Dynamo',
+  'Dynamo for Revit',
   'IFC / openBIM',
-  'ArcGIS Pro',
-  'QGIS',
-  'Google Earth',
-  'Revit API · C#',
-  'Python',
-  'React',
-  'TypeScript',
-  'Excel',
+  'Scan to BIM',
+  'Construction Documents',
+  '3D Visualization',
+  'PDF to CAD',
 ]
 
 export default function Hero() {
@@ -30,14 +26,14 @@ export default function Hero() {
         <div className="hero-text">
           <span className="eyebrow">
             <span className="eyebrow-dot" aria-hidden="true" />
-            {ROLE}
+            {ROLE} · Architecture
           </span>
           <h1>
-            BIM models, <span className="grad">real-world context</span> and the code that connects them.
+            Architectural BIM, <span className="grad">from first model</span> to construction set.
           </h1>
           <p className="hero-sub">
-            I'm {OWNER}, and this is my portfolio. I work on Revit models and construction drawings, place them on GIS
-            maps at their real coordinates, and write software that automates the work in between.
+            I'm {OWNER}, and this is my portfolio. I build Revit models for architecture projects, coordinate them and
+            turn them into clear construction documents.
           </p>
           <div className="hero-ctas">
             <a href="#projects" className="btn btn-primary btn-lg">

@@ -420,9 +420,6 @@ section { scroll-margin-top: 24px; }
 .hv-svg { display: block; width: 100%; height: auto; }
 .hv-floor { animation: hv-rise 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
 @keyframes hv-rise { from { opacity: 0; transform: translateY(-22px); } }
-.hv-pin { animation: hv-rise 0.7s 1.4s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
-.hv-pulse { transform-box: fill-box; transform-origin: center; animation: hv-pulse 2.2s ease-out infinite; }
-@keyframes hv-pulse { from { transform: scale(0.6); opacity: 0.9; } to { transform: scale(2.2); opacity: 0; } }
 .hv-parcel { stroke-dasharray: 7 5; animation: march 1.2s linear infinite; }
 @keyframes march { to { stroke-dashoffset: -12; } }
 .hv-card {
@@ -450,10 +447,10 @@ section { scroll-margin-top: 24px; }
 .hv-layers li { display: flex; align-items: center; gap: 0.5rem; }
 .hv-check { width: 10px; height: 10px; border-radius: 3px; }
 .hv-code { bottom: 20px; left: 22px; animation-delay: -4.6s; }
-.hv-code pre { margin: 0; font-family: var(--font-mono); font-size: 0.72rem; line-height: 1.6; color: #cbd5e1; }
-.hv-code .k { color: #c084fc; }
-.hv-code .t { color: #60a5fa; }
-.hv-code .s { color: #4ade80; }
+.hv-sheets { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.25rem; min-width: 170px; }
+.hv-sheets li { display: flex; align-items: center; gap: 0.6rem; }
+.hv-sheets b { font-family: var(--font-mono); font-weight: 500; font-size: 0.72rem; color: #c4b5fd; }
+.hv-sheets .ok { margin-left: auto; color: #4ade80; font-weight: 700; }
 
 /* Scrolling tool strip */
 .tool-strip {

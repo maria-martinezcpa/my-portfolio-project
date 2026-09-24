@@ -1,8 +1,8 @@
 import type { CSSProperties } from 'react'
 import { OWNER, ROLE, skillGroups } from '../data'
-import { CodeIcon, CubeIcon, MapIcon } from './Icons'
+import { CubeIcon, DrawingIcon, LayersIcon } from './Icons'
 
-const groupIcons = { cube: CubeIcon, map: MapIcon, code: CodeIcon }
+const groupIcons = { cube: CubeIcon, drawing: DrawingIcon, layers: LayersIcon }
 
 export default function About() {
   return (
@@ -10,14 +10,14 @@ export default function About() {
       <div className="container about-grid">
         <div className="about-text" data-reveal>
           <span className="kicker">About</span>
-          <h2>A BIM modeler who also writes the code</h2>
+          <h2>BIM for architecture, done carefully</h2>
           <p className="lead">
-            I'm {OWNER}, a {ROLE} working on Revit models, drawings and BIM workflows.
+            I'm {OWNER}, a {ROLE} working on architectural Revit models, drawings and BIM workflows.
           </p>
           <p className="muted">
-            I link building models with GIS site and city data, and write software (Revit add-ins, Python scripts and web
-            apps) that automates and shares them. I enjoy taking a project from a PDF or a point cloud to a
-            georeferenced model, and then building the tool that keeps it up to date.
+            I turn sketches, PDFs, CAD files and point clouds into clean, well-organised Revit models, and carry them
+            through coordination to construction documents. I care about models that other people can pick up and
+            trust, and drawings that are clear on site.
           </p>
           <a href="#projects" className="btn btn-primary">
             See my projects

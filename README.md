@@ -1,4 +1,4 @@
-# David Nguyen: BIM portfolio
+# David Nguyen: architectural BIM portfolio
 
 Single-page portfolio built with React, TypeScript and Vite.
 

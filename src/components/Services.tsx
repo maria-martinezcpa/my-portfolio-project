@@ -1,5 +1,5 @@
 import type { ComponentType, CSSProperties, SVGProps } from 'react'
-import { CheckIcon, CodeIcon, CubeIcon, MapIcon } from './Icons'
+import { CheckIcon, CubeIcon, DrawingIcon, LayersIcon } from './Icons'
 
 interface Service {
   icon: ComponentType<SVGProps<SVGSVGElement>>
@@ -13,23 +13,23 @@ const services: Service[] = [
   {
     icon: CubeIcon,
     tone: '#60a5fa',
-    title: 'BIM modeling & documentation',
-    text: 'Revit models built from sketches, PDFs, CAD files or point clouds, and the drawing sets that come out of them.',
-    items: ['Architectural Revit models', 'Scan to BIM', 'Construction document sets', 'IFC / openBIM exchange'],
+    title: 'BIM modeling',
+    text: 'Architectural Revit models built from sketches, PDFs, CAD files or point clouds, organised so the whole team can build on them.',
+    items: ['Architectural Revit models', 'Scan to BIM', 'Existing-conditions models', '3D views & visualization'],
   },
   {
-    icon: MapIcon,
-    tone: '#4ade80',
-    title: 'GIS & site analysis',
-    text: 'Buildings and plans placed at their real coordinates, with the parcels, zoning and networks around them.',
-    items: ['Georeferencing CAD & BIM', 'Site selection & zoning overlays', 'ArcGIS Pro & QGIS maps', 'Google Earth KMZ'],
+    icon: DrawingIcon,
+    tone: '#f59e0b',
+    title: 'Construction documents',
+    text: 'Drawing sets that come straight out of the model, so plans, sections and schedules always agree.',
+    items: ['Plans, elevations & sections', 'Details & schedules', 'Permit drawing sets', 'PDF to CAD conversion'],
   },
   {
-    icon: CodeIcon,
+    icon: LayersIcon,
     tone: '#c084fc',
-    title: 'BIM software & automation',
-    text: 'Tools that take the repetitive work out of BIM and share model data with people who do not use Revit.',
-    items: ['Revit add-ins (C# API)', 'Dynamo & Python scripts', 'Web viewers & dashboards', 'Excel data exports'],
+    title: 'BIM coordination',
+    text: 'Models that stay consistent as they are shared between architects, engineers and builders.',
+    items: ['IFC / openBIM exchange', 'Model checks & clean-up', 'Consistent views & sheets', 'Dynamo for Revit routines'],
   },
 ]
 
@@ -39,8 +39,8 @@ export default function Services() {
       <div className="container">
         <header className="section-head" data-reveal>
           <span className="kicker">What I do</span>
-          <h2>The model, the map and the code</h2>
-          <p>My work starts with the building and carries on to its site, its city and the software around it.</p>
+          <h2>From model to construction set</h2>
+          <p>BIM work for architecture projects, from the first model to the drawings that get it built.</p>
         </header>
 
         <div className="service-grid">

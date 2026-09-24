@@ -1,6 +1,6 @@
 import { useMemo, useState, type ComponentType, type SVGProps } from 'react'
 import { CATEGORIES, projects, type Category, type Project } from '../data'
-import { ArrowIcon, CubeIcon, DrawingIcon, EyeIcon, MapIcon } from './Icons'
+import { ArrowIcon, CubeIcon, DrawingIcon, EyeIcon } from './Icons'
 import ProjectModal from './ProjectModal'
 
 type Filter = Category | 'All'
@@ -9,7 +9,6 @@ const categoryIcons: Record<Category, ComponentType<SVGProps<SVGSVGElement>>> = 
   'BIM Modeling': CubeIcon,
   Drawings: DrawingIcon,
   Visualization: EyeIcon,
-  'GIS & Mapping': MapIcon,
 }
 
 // Card sizes for the 4-column grid: the first card is large, and enough of the last
@@ -34,9 +33,9 @@ export default function Projects() {
         <header className="section-head section-head-split" data-reveal>
           <div>
             <span className="kicker">Projects</span>
-            <h2>Models, drawings and maps</h2>
+            <h2>Models, drawings and visuals</h2>
             <p>
-              Sample projects across BIM, drafting, visualization and GIS. Work by other freelancers is credited on each
+              Sample architecture projects across BIM modeling, drawings and visualization. Work by other freelancers is credited on each
               project.
             </p>
           </div>

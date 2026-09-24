@@ -1,11 +1,11 @@
 import type { CSSProperties } from 'react'
-import { ClipboardIcon, LayersIcon, PinIcon, SendIcon } from './Icons'
+import { ClipboardIcon, DrawingIcon, LayersIcon, SendIcon } from './Icons'
 
 const steps = [
   {
     icon: ClipboardIcon,
     title: 'Start from the source',
-    text: 'Sketches, PDFs, CAD files, point clouds or GIS layers: whatever the project starts from.',
+    text: 'Sketches, PDFs, CAD files or point clouds: whatever the project starts from.',
   },
   {
     icon: LayersIcon,
@@ -13,14 +13,14 @@ const steps = [
     text: 'A clean Revit model with sensible levels, families and parameters that others can build on.',
   },
   {
-    icon: PinIcon,
-    title: 'Place & coordinate',
-    text: 'Georeferenced to real coordinates, checked against the site, and turned into drawings.',
+    icon: DrawingIcon,
+    title: 'Coordinate & document',
+    text: 'Checked with the rest of the team, then turned into plans, sections, details and schedules.',
   },
   {
     icon: SendIcon,
-    title: 'Share & automate',
-    text: 'Export to RVT, DWG, IFC, PDF or KMZ, and script the parts that come up again and again.',
+    title: 'Issue & share',
+    text: 'Issued as RVT, DWG, IFC or PDF, ready for review, permit or construction.',
   },
 ]
 
@@ -31,7 +31,7 @@ export default function Process() {
         <header className="section-head" data-reveal>
           <span className="kicker">Approach</span>
           <h2>How I like to work</h2>
-          <p>The same four steps run through most of my projects, from a single drawing set to a model linked to a city map.</p>
+          <p>The same four steps run through most of my projects, from a single drawing set to a full building model.</p>
         </header>
 
         <ol className="process">

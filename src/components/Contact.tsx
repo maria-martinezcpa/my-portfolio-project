@@ -45,7 +45,7 @@ export default function Contact() {
             <span className="kicker">Contact</span>
             <h2>Say hello</h2>
             <p>
-              Questions about a project here, or want to talk about BIM, GIS or code? I'm always happy to hear
+              Questions about a project here, or want to talk about BIM and architecture? I'm always happy to hear
               from people.
             </p>
           </div>

@@ -38,23 +38,6 @@ export function CubeIcon(props: IconProps) {
   )
 }
 
-export function MapIcon(props: IconProps) {
-  return (
-    <Line {...props}>
-      <path d="M9 4 3 6.2v13.8l6-2.2 6 2.2 6-2.2V4l-6 2.2L9 4Z" />
-      <path d="M9 4v13.8M15 6.2V20" />
-    </Line>
-  )
-}
-
-export function CodeIcon(props: IconProps) {
-  return (
-    <Line {...props}>
-      <path d="m8 8-4 4 4 4M16 8l4 4-4 4M13.5 5l-3 14" />
-    </Line>
-  )
-}
-
 export function LayersIcon(props: IconProps) {
   return (
     <Line {...props}>
@@ -82,23 +65,6 @@ export function EyeIcon(props: IconProps) {
   )
 }
 
-export function ScanIcon(props: IconProps) {
-  return (
-    <Line {...props}>
-      <path d="M4 8V5a1 1 0 0 1 1-1h3M16 4h3a1 1 0 0 1 1 1v3M20 16v3a1 1 0 0 1-1 1h-3M8 20H5a1 1 0 0 1-1-1v-3M4 12h16" />
-    </Line>
-  )
-}
-
-export function PinIcon(props: IconProps) {
-  return (
-    <Line {...props}>
-      <path d="M12 21s-7-6.1-7-11a7 7 0 0 1 14 0c0 4.9-7 11-7 11Z" />
-      <circle cx="12" cy="10" r="2.5" />
-    </Line>
-  )
-}
-
 export function ClipboardIcon(props: IconProps) {
   return (
     <Line {...props}>
@@ -112,14 +78,6 @@ export function SendIcon(props: IconProps) {
   return (
     <Line {...props}>
       <path d="M21 3 10.5 13.5M21 3l-6.5 18-4-7.5L3 9.5 21 3Z" />
-    </Line>
-  )
-}
-
-export function SparkIcon(props: IconProps) {
-  return (
-    <Line {...props}>
-      <path d="M12 3v4M12 17v4M3 12h4M17 12h4M5.6 5.6l2.8 2.8M15.6 15.6l2.8 2.8M5.6 18.4l2.8-2.8M15.6 8.4l2.8-2.8" />
     </Line>
   )
 }
