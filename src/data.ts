@@ -25,7 +25,9 @@ export interface Project {
 
 export const OWNER = 'David Nguyen'
 export const ROLE = 'BIM Modeler, GIS & Software Developer'
-export const EMAIL = 'davidnguyen@gmail.com'
+export const EMAILS = ['davidng924@gmail.com', 'stick0427@gmail.com']
+export const TELEGRAM = 'https://t.me/housekeeper5252'
+export const PHONE = '+1 (323) 505 2719'
 
 export const navLinks: NavLink[] = [
   { label: 'Projects', href: '#projects' },

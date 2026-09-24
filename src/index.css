@@ -455,6 +455,7 @@ section { scroll-margin-top: 72px; }
 .about, .contact { text-align: center; max-width: 720px; }
 .about h2, .contact h2 { font-size: 2.2rem; }
 .about .tech-list { margin-top: 1.5rem; }
+.contact-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
 
 /* Project modal */
 .modal-backdrop {
