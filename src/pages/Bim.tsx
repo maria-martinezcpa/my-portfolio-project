@@ -1,4 +1,4 @@
-import { motion, useInView } from 'framer-motion'
+﻿import { motion, useInView } from 'framer-motion'
 import { useEffect, useRef, useState, type ReactNode } from 'react'
 import AxonDrawing from '../components/AxonDrawing'
 import Footer from '../components/Footer'
@@ -38,21 +38,34 @@ function Section({
   }, [active, id, onActive])
 
   return (
-    <section ref={ref} id={id} className="scroll-mt-28 border-t border-line py-20 md:py-28">
+    <section ref={ref} id={id} className="scroll-mt-28 border-t border-line py-14 md:py-20">
       <Reveal>
         <span className="eyebrow text-muted">{String(n).padStart(2, '0')}</span>
       </Reveal>
-      <RevealText as="h2" text={title} className="mt-4 font-display text-5xl leading-[1.02] md:text-7xl" />
-      <div className="mt-10 space-y-6 text-[1.05rem] leading-[1.75] text-fg/85">{children}</div>
+      <RevealText as="h2" text={title} className="mt-3 font-display text-5xl leading-[1.02] md:text-6xl" />
+      <div className="mt-8 space-y-6 text-[1.125rem] leading-[1.75] text-fg/85">{children}</div>
     </section>
   )
 }
 
 const P = ({ children }: { children: ReactNode }) => (
   <Reveal y={20}>
-    <p className="max-w-[62ch]">{children}</p>
+    <p className="max-w-[82ch]">{children}</p>
   </Reveal>
 )
+
+const facts = [
+  ['ISO 19650', 'Information management'],
+  ['3Dâ€“7D', 'Dimensions of data'],
+  ['LOD 100â€“500', 'Levels of development'],
+]
+
+const standards = [
+  ['ISO 19650', 'Managing information with BIM'],
+  ['IFC Â· ISO 16739', 'Open model exchange'],
+  ['BCF', 'Issues between teams'],
+  ['AIA / BIMForum', 'Level of development'],
+]
 
 const lod = [
   ['100', 'Concept', 'Massing and symbols. Area, height and volume are indicative only.'],
@@ -96,7 +109,7 @@ function LodScale() {
       </div>
       <motion.div key={hover} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5, ease: EASE }} className="mt-6 border-l border-accent pl-5">
         <div className="eyebrow text-accent">
-          LOD {lod[hover][0]} · {lod[hover][1]}
+          LOD {lod[hover][0]} Â· {lod[hover][1]}
         </div>
         <p className="mt-2 max-w-[52ch]">{lod[hover][2]}</p>
       </motion.div>
@@ -115,7 +128,7 @@ const dims = [
 const stages = [
   ['Design', 'Architects and engineers model their disciplines, test options and federate models to find clashes before drawings are issued.'],
   ['Construction', 'Contractors take quantities, plan sequences, prefabricate components and resolve site questions against the model.'],
-  ['Operation', 'Owners receive structured asset data — equipment, finishes, warranties — to run and maintain the building.'],
+  ['Operation', 'Owners receive structured asset data â€” equipment, finishes, warranties â€” to run and maintain the building.'],
 ]
 
 const roles = [
@@ -127,58 +140,105 @@ const roles = [
 
 export default function Bim() {
   const [active, setActive] = useState(sections[0].id)
+  const activeIndex = Math.max(0, sections.findIndex((s) => s.id === active))
 
   return (
     <Page title={`What is BIM | ${OWNER}`}>
-      <header className="container-x grid gap-12 pb-10 pt-40 md:grid-cols-12 md:pt-52">
-        <div className="md:col-span-7">
+      <header className="container-x grid items-center gap-10 pb-8 pt-32 md:grid-cols-12 md:gap-12 md:pt-36">
+        <div className="md:col-span-5">
           <motion.span className="eyebrow text-muted" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4, duration: 1 }}>
             A short guide
           </motion.span>
-          <h1 className="mt-6 font-display text-[16vw] leading-[0.86] tracking-[-0.03em] md:text-[9vw]">
+          <h1 className="mt-5 font-display text-[16vw] leading-[0.9] tracking-[-0.03em] md:text-[6.5vw]">
             <RevealText text="What is" instant delay={0.3} className="block" />
             <RevealText text="BIM?" instant delay={0.45} className="block italic" />
           </h1>
-          <Reveal delay={0.7} className="mt-10 max-w-xl">
-            <p className="text-lg leading-relaxed text-muted">
-              Building Information Modelling is how buildings are now designed, documented and handed over: as one shared,
-              structured model instead of a stack of separate drawings.
+          <Reveal delay={0.7} className="mt-8 space-y-4 text-lg leading-relaxed text-fg/80">
+            <p>
+              <strong className="font-medium text-fg">Building Information Modelling (BIM)</strong> is the process of
+              creating and managing a shared, data-rich 3D model of a building across its whole life.
+            </p>
+            <p>
+              Every wall, slab, door and duct in the model is an object that carries its own information: type, size,
+              material and performance. Plans, sections, schedules and quantities are all generated from that one
+              coordinated source, so architects, engineers, builders and owners work from the same information.
             </p>
           </Reveal>
+          <Reveal delay={0.85} className="mt-10 grid grid-cols-3 gap-4 border-t border-line pt-6">
+            {facts.map(([big, small]) => (
+              <div key={big}>
+                <div className="font-display text-2xl md:text-3xl">{big}</div>
+                <div className="mt-1 text-sm text-muted">{small}</div>
+              </div>
+            ))}
+          </Reveal>
         </div>
-        <div className="md:col-span-5">
+        <div className="md:col-span-7">
           <AxonDrawing />
         </div>
       </header>
 
-      <div className="container-x grid md:grid-cols-12 md:gap-8">
-        {/* Sticky index */}
-        <aside className="hidden md:col-span-3 md:block">
-          <nav className="sticky top-32 flex flex-col gap-2 pt-20 text-sm" aria-label="Guide sections">
-            {sections.map((s, i) => (
-              <a
-                key={s.id}
-                href={`#/bim`}
-                onClick={(e) => {
-                  e.preventDefault()
-                  document.getElementById(s.id)?.scrollIntoView({ behavior: 'smooth' })
-                }}
-                className={`flex items-center gap-3 transition-colors duration-500 ${active === s.id ? 'text-fg' : 'text-muted hover:text-fg'}`}
-              >
-                <motion.span className="h-px bg-current" animate={{ width: active === s.id ? 32 : 12 }} transition={{ duration: 0.5, ease: EASE }} />
-                <span className="tabular-nums">{String(i + 1).padStart(2, '0')}</span>
-                {s.title}
-              </a>
-            ))}
-          </nav>
+      <div className="container-x grid md:grid-cols-12 md:gap-12">
+        {/* Sticky index with progress, plus the key standards at a glance */}
+        <aside className="hidden md:col-span-4 md:block">
+          <div className="sticky top-28 space-y-5 pt-16">
+            <nav className="rounded-2xl border border-line bg-surface/60 p-6" aria-label="Guide sections">
+              <div className="flex items-center justify-between">
+                <span className="eyebrow text-muted">Contents</span>
+                <span className="text-sm tabular-nums text-muted">
+                  {String(activeIndex + 1).padStart(2, '0')} / {String(sections.length).padStart(2, '0')}
+                </span>
+              </div>
+              <div className="mt-4 h-px w-full bg-line">
+                <motion.div
+                  className="h-px origin-left bg-accent"
+                  animate={{ scaleX: (activeIndex + 1) / sections.length }}
+                  transition={{ duration: 0.6, ease: EASE }}
+                />
+              </div>
+              <ol className="mt-3">
+                {sections.map((s, i) => (
+                  <li key={s.id}>
+                    <a
+                      href="#/bim"
+                      onClick={(e) => {
+                        e.preventDefault()
+                        document.getElementById(s.id)?.scrollIntoView({ behavior: 'smooth' })
+                      }}
+                      aria-current={active === s.id ? 'true' : undefined}
+                      className={`flex items-center gap-4 rounded-lg px-2 py-2.5 text-base transition-colors duration-500 ${
+                        active === s.id ? 'bg-bg font-medium text-fg' : 'text-muted hover:text-fg'
+                      }`}
+                    >
+                      <span className={`tabular-nums text-sm ${active === s.id ? 'text-accent' : ''}`}>
+                        {String(i + 1).padStart(2, '0')}
+                      </span>
+                      {s.title}
+                    </a>
+                  </li>
+                ))}
+              </ol>
+            </nav>
+            <div className="rounded-2xl border border-line p-6">
+              <span className="eyebrow text-muted">Key standards</span>
+              <dl className="mt-4 space-y-3 text-sm">
+                {standards.map(([k, v]) => (
+                  <div key={k} className="flex justify-between gap-4 border-b border-line pb-3 last:border-0 last:pb-0">
+                    <dt className="font-medium">{k}</dt>
+                    <dd className="text-right text-muted">{v}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </div>
         </aside>
 
-        <article className="md:col-span-8 md:col-start-5">
+        <article className="md:col-span-8">
           <Section id="definition" n={1} title="Definition" onActive={setActive}>
             <Reveal y={20}>
               <blockquote className="border-l border-accent pl-6 font-display text-3xl leading-snug md:text-4xl">
-                “Use of a shared digital representation of a built asset to facilitate design, construction and operation
-                processes to form a reliable basis for decisions.”
+                â€œUse of a shared digital representation of a built asset to facilitate design, construction and operation
+                processes to form a reliable basis for decisions.â€
                 <footer className="eyebrow mt-4 font-sans text-muted">ISO 19650-1</footer>
               </blockquote>
             </Reveal>
@@ -210,7 +270,7 @@ export default function Bim() {
           </Section>
 
           <Section id="dimensions" n={4} title="Dimensions" onActive={setActive}>
-            <P>Each “dimension” adds another kind of information to the same model.</P>
+            <P>Each â€œdimensionâ€ adds another kind of information to the same model.</P>
             <ul className="divide-y divide-line border-y border-line">
               {dims.map(([d, t, text], i) => (
                 <motion.li
@@ -252,7 +312,7 @@ export default function Bim() {
           <Section id="standards" n={6} title="Standards & collaboration" onActive={setActive}>
             <P>
               <strong className="font-medium">ISO 19650</strong> sets out how information is specified, produced and
-              exchanged on a project: the client’s information requirements, a BIM Execution Plan that answers them, and a
+              exchanged on a project: the clientâ€™s information requirements, a BIM Execution Plan that answers them, and a
               common data environment (CDE) where every file moves through the states Work in progress, Shared, Published
               and Archived.
             </P>
