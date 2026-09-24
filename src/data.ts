@@ -20,8 +20,12 @@ export interface Project {
   description: string[]
   skills: string[]
   images: ProjectImage[]
-  author: string
+  author?: string
+  category: Category
 }
+
+export const CATEGORIES = ['BIM Modeling', 'Drawings', 'Visualization', 'GIS & Mapping'] as const
+export type Category = (typeof CATEGORIES)[number]
 
 export const OWNER = 'David Nguyen'
 export const ROLE = 'BIM Modeler, GIS & Software Developer'
@@ -30,9 +34,11 @@ export const TELEGRAM = 'https://t.me/housekeeper5252'
 export const PHONE = '+1 (323) 505 2719'
 
 export const navLinks: NavLink[] = [
+  { label: 'Services', href: '#services' },
+  { label: 'BIM', href: '#bim' },
   { label: 'Projects', href: '#projects' },
+  { label: 'Process', href: '#process' },
   { label: 'About', href: '#about' },
-  { label: 'Contact', href: '#contact' },
 ]
 
 // Sample projects by other freelancers; each is shown with its author's name.
@@ -48,28 +54,61 @@ const authors: Record<string, string> = {
   '09': 'Mochammad Ichwan A.',
 }
 
+const categories: Record<string, Category> = {
+  '01': 'BIM Modeling',
+  '02': 'Visualization',
+  '03': 'Drawings',
+  '04': 'BIM Modeling',
+  '05': 'BIM Modeling',
+  '06': 'Drawings',
+  '07': 'Drawings',
+  '08': 'Drawings',
+  '09': 'Visualization',
+  '10': 'GIS & Mapping',
+  '11': 'GIS & Mapping',
+}
+
 // Newest first
 export const projects: Project[] = sampleProjects
-  .map((p) => ({ ...p, author: authors[p.id] }))
+  .map((p) => ({ ...p, author: authors[p.id], category: categories[p.id] ?? 'BIM Modeling' }))
   .sort((a, b) => Date.parse(b.published) - Date.parse(a.published))
 
-export const skills: string[] = [
-  'Autodesk Revit',
-  'BIM Modeling',
-  'Scan to BIM',
-  'Construction Documents',
-  'AutoCAD',
-  'Dynamo',
-  '3D Visualization',
-  'ArcGIS Pro & QGIS',
-  'BIM-GIS Integration',
-  'Georeferencing',
-  'Google Earth (KMZ)',
-  'PDF to CAD Conversion',
-  'Site Selection & Zoning Analysis',
-  'Microsoft Excel',
-  'IFC & openBIM',
-  'Revit API (C#)',
-  'Python',
-  'React & TypeScript',
+export interface SkillGroup {
+  title: string
+  icon: 'cube' | 'map' | 'code'
+  items: string[]
+}
+
+export const skillGroups: SkillGroup[] = [
+  {
+    title: 'BIM & drafting',
+    icon: 'cube',
+    items: [
+      'Autodesk Revit',
+      'BIM Modeling',
+      'Scan to BIM',
+      'Construction Documents',
+      'AutoCAD',
+      '3D Visualization',
+      'PDF to CAD Conversion',
+    ],
+  },
+  {
+    title: 'GIS & mapping',
+    icon: 'map',
+    items: [
+      'ArcGIS Pro & QGIS',
+      'BIM-GIS Integration',
+      'Georeferencing',
+      'Google Earth (KMZ)',
+      'Site Selection & Zoning Analysis',
+    ],
+  },
+  {
+    title: 'Software & data',
+    icon: 'code',
+    items: ['Revit API (C#)', 'Dynamo', 'Python', 'React & TypeScript', 'IFC & openBIM', 'Microsoft Excel'],
+  },
 ]
+
+export const skills: string[] = skillGroups.flatMap((g) => g.items)

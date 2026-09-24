@@ -1,11 +1,26 @@
-import { OWNER, ROLE } from '../data'
-import BimIllustration from './BimIllustration'
+import { OWNER, ROLE, skills } from '../data'
+import HeroVisual from './HeroVisual'
+import { ArrowIcon } from './Icons'
 
-const benefits = [
-  { icon: '🔍', title: 'Clashes caught early', text: 'Problems are found and fixed on screen, not on site.' },
-  { icon: '🤝', title: 'One source of truth', text: 'Architects, engineers and builders work from the same model.' },
-  { icon: '📊', title: 'Data for the whole lifecycle', text: 'Quantities, costs, schedules and maintenance from one model.' },
-  { icon: '🌍', title: 'An industry standard', text: 'Required on public projects in the UK and many other countries.' },
+const stats = [
+  { value: '3', label: 'Disciplines', note: 'BIM · GIS · Software' },
+  { value: `${skills.length}`, label: 'Tools & skills', note: 'Revit to React' },
+  { value: 'RVT · DWG · IFC · KMZ', label: 'Delivery formats', note: 'Ready for any team' },
+]
+
+const tools = [
+  'Autodesk Revit',
+  'AutoCAD',
+  'Dynamo',
+  'IFC / openBIM',
+  'ArcGIS Pro',
+  'QGIS',
+  'Google Earth',
+  'Revit API · C#',
+  'Python',
+  'React',
+  'TypeScript',
+  'Excel',
 ]
 
 export default function Hero() {
@@ -13,37 +28,49 @@ export default function Hero() {
     <section id="home" className="hero" data-testid="hero">
       <div className="container hero-grid">
         <div className="hero-text">
-          <span className="badge">{ROLE}</span>
-          <h1>{OWNER}</h1>
-          <p className="hero-sub">Revit modeling, BIM-GIS integration and software for BIM workflows.</p>
-
-          <h2 className="hero-q">What is BIM?</h2>
-          <p className="hero-def">
-            <strong>Building Information Modeling</strong> is a shared 3D model of a building where every element
-            (wall, beam, pipe, door) carries real data. Everyone who designs, builds and runs the building works from it.
+          <span className="eyebrow">
+            <span className="eyebrow-dot" aria-hidden="true" />
+            {ROLE}
+          </span>
+          <h1>
+            BIM models, <span className="grad">real-world context</span> and the code that connects them.
+          </h1>
+          <p className="hero-sub">
+            I'm {OWNER}. I build Revit models and construction drawings, place them on GIS maps at their real
+            coordinates, and write software that automates the work in between.
           </p>
-          <ul className="benefits">
-            {benefits.map((b) => (
-              <li key={b.title}>
-                <span className="benefit-icon" aria-hidden="true">
-                  {b.icon}
-                </span>
-                <span>
-                  <strong>{b.title}</strong>
-                  <br />
-                  <span className="muted">{b.text}</span>
-                </span>
-              </li>
-            ))}
-          </ul>
+          <div className="hero-ctas">
+            <a href="#projects" className="btn btn-primary btn-lg">
+              View projects <ArrowIcon className="btn-icon" />
+            </a>
+            <a href="#contact" className="btn btn-ghost btn-lg">
+              Start a project
+            </a>
+          </div>
 
-          <a href="#projects" className="btn btn-primary">
-            View projects
-          </a>
+          <dl className="hero-stats">
+            {stats.map((s) => (
+              <div key={s.label}>
+                <dt>{s.label}</dt>
+                <dd>
+                  <strong>{s.value}</strong>
+                  <span>{s.note}</span>
+                </dd>
+              </div>
+            ))}
+          </dl>
         </div>
 
-        <div className="hero-visual">
-          <BimIllustration />
+        <HeroVisual />
+      </div>
+
+      <div className="tool-strip" aria-label="Tools I work with">
+        <div className="tool-track">
+          {[...tools, ...tools].map((t, i) => (
+            <span key={i} className="tool" aria-hidden={i >= tools.length}>
+              {t}
+            </span>
+          ))}
         </div>
       </div>
     </section>

@@ -60,7 +60,13 @@ export default function ProjectModal({ project, onClose }: Props) {
         </div>
 
         <div className="modal-info">
+          <span className="kicker">{project.category}</span>
           <h2 id="project-modal-title">{project.title}</h2>
+          {project.author && (
+            <p className="modal-credit">
+              Sample project by <strong>{project.author}</strong>, shown for reference.
+            </p>
+          )}
           {project.role && (
             <p>
               <span className="muted">Role: </span>
